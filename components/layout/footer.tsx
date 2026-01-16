@@ -1,10 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { NewsletterSignup } from "@/components/ui/newsletter-signup";
 
 export function Footer() {
   return (
     <footer className="border-t bg-muted/50">
+      {/* Newsletter Section */}
+      <div className="border-b bg-primary/5">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div>
+              <h3 className="text-lg font-semibold">Stay Updated</h3>
+              <p className="text-sm text-muted-foreground">Get the latest updates on our programs and impact</p>
+            </div>
+            <div className="w-full md:w-auto md:min-w-[400px]">
+              <NewsletterSignup />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* About Column */}

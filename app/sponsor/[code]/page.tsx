@@ -5,6 +5,7 @@ import { Hero, Section, Container } from "@/components/layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Heart, MapPin, Calendar, Users } from "lucide-react";
 
 // Mock function - replace with Strapi data
@@ -46,6 +47,13 @@ export default async function ChildProfilePage({ params }: { params: { code: str
     <>
       <Section className="pt-24">
         <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Sponsor a Child", href: "/sponsor" },
+              { label: child.firstName }
+            ]}
+            className="mb-8"
+          />
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Child Photo */}
             <div>

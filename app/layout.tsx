@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import { Navbar, Footer } from "@/components/layout";
 import { Toaster } from "@/components/ui/sonner";
+import { BackToTop } from "@/components/ui/back-to-top";
 import "./globals.css";
 
 const sora = Sora({
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <BackToTop />
         <Toaster />
       </body>
     </html>

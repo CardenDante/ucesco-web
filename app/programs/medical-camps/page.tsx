@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Hero, Section, Container } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { CheckCircle, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -49,6 +50,17 @@ export default function MedicalCampsPage() {
         size="md"
         className="bg-red-500/10"
       />
+
+      <Section className="py-4">
+        <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Programs", href: "/programs" },
+              { label: "Medical Camps" }
+            ]}
+          />
+        </Container>
+      </Section>
 
       {/* Program Overview */}
       <Section>

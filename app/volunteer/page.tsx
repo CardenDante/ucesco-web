@@ -4,7 +4,8 @@ import { Hero, Section, Container } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Star, Heart, Users, Home, Shield } from "lucide-react";
+import { RatingStars } from "@/components/ui/rating-stars";
+import { CheckCircle, Star, Heart, Users, Home, Shield, Award } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Volunteer with UCESCO Africa | Make a Difference",
@@ -65,6 +66,36 @@ export default function VolunteerPage() {
         description="Share your skills, time, and passion to create lasting change in communities across East Africa"
         size="md"
       />
+
+      {/* Trust & Ratings Banner - VolunteerWorld Style */}
+      <Section className="border-b bg-muted/30 py-8">
+        <Container>
+          <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:justify-between">
+            <div className="text-center md:text-left">
+              <div className="flex items-center justify-center gap-2 md:justify-start">
+                <RatingStars rating={4.8} size="lg" showNumber />
+                <span className="text-sm text-muted-foreground">(1,200+ volunteer reviews)</span>
+              </div>
+              <p className="mt-2 text-sm font-semibold text-secondary">Top Rated Volunteer Program in East Africa</p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Badge variant="outline" className="gap-2 px-4 py-2">
+                <Award className="h-4 w-4" />
+                Quality Checked
+              </Badge>
+              <Badge variant="outline" className="gap-2 px-4 py-2">
+                <Shield className="h-4 w-4" />
+                Verified NGO
+              </Badge>
+              <Badge variant="outline" className="gap-2 px-4 py-2">
+                <CheckCircle className="h-4 w-4" />
+                Safe & Supported
+              </Badge>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       {/* Why Volunteer */}
       <Section>
@@ -219,10 +250,8 @@ export default function VolunteerPage() {
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20">
                 <CardContent className="pt-6">
-                  <div className="mb-4 flex">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
-                    ))}
+                  <div className="mb-4">
+                    <RatingStars rating={testimonial.rating} className="[&>svg]:text-yellow-400" />
                   </div>
                   <p className="text-primary-foreground/90">{testimonial.content}</p>
                   <div className="mt-4">

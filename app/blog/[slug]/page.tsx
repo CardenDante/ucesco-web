@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container, Section } from "@/components/layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 
 // Mock function - replace with actual Strapi call
@@ -53,10 +54,13 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
       <Section className="pt-24">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <Link href="/blog" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Link>
+            <Breadcrumbs
+              items={[
+                { label: "Blog", href: "/blog" },
+                { label: post.title }
+              ]}
+              className="mb-8"
+            />
 
             <Badge className="mb-4">{post.category}</Badge>
 

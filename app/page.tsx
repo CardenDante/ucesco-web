@@ -6,6 +6,7 @@ import { ProgramHighlights } from "@/components/home/program-highlights";
 import { FeaturedStories } from "@/components/home/featured-stories";
 import { HowYouCanHelp } from "@/components/home/how-you-can-help";
 import { PartnersSection } from "@/components/home/partners-section";
+import { TrustSection } from "@/components/layout/trust-section";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
@@ -55,6 +56,9 @@ export default function HomePage() {
 
       {/* Partners & Trust Badges */}
       <PartnersSection />
+
+      {/* Trust & Transparency */}
+      <TrustSection />
 
       {/* Call to Action Section */}
       <section className="bg-gradient-to-br from-primary to-secondary py-20 text-primary-foreground">

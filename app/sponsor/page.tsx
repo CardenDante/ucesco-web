@@ -150,6 +150,56 @@ export default function SponsorPage() {
         </Container>
       </Section>
 
+      {/* Success Statistics - Compassion-Style Trust Signals */}
+      <Section className="bg-gradient-to-br from-primary/10 to-secondary/10">
+        <Container>
+          <div className="text-center">
+            <Badge className="mb-4 bg-secondary text-secondary-foreground">Proven Impact</Badge>
+            <h2 className="text-3xl font-bold sm:text-4xl">Real Results, Lasting Change</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Our child sponsorship program transforms lives with measurable outcomes
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            <div className="text-center">
+              <div className="mb-4 text-5xl font-bold text-primary">95%</div>
+              <h3 className="text-xl font-semibold">Complete Education</h3>
+              <p className="mt-2 text-muted-foreground">
+                95% of sponsored children complete their full education cycle and break the poverty cycle
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mb-4 text-5xl font-bold text-primary">92%</div>
+              <h3 className="text-xl font-semibold">Gain Employment</h3>
+              <p className="mt-2 text-muted-foreground">
+                92% of graduates secure meaningful employment or start successful businesses
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mb-4 text-5xl font-bold text-primary">25K+</div>
+              <h3 className="text-xl font-semibold">Lives Transformed</h3>
+              <p className="mt-2 text-muted-foreground">
+                Over 25,000 children have benefited from our sponsorship program since inception
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 rounded-lg border-2 border-secondary/20 bg-background p-8 text-center">
+            <div className="mx-auto flex max-w-2xl items-center justify-center gap-4">
+              <CheckCircle className="h-12 w-12 flex-shrink-0 text-secondary" />
+              <div className="text-left">
+                <h3 className="text-xl font-bold">80% Directly to Programs</h3>
+                <p className="text-muted-foreground">
+                  80% of every sponsorship dollar goes directly to child support programs. Only 20% for operations.
+                  Your impact is maximized.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* Children Listing */}
       <Section className="bg-muted/30">
         <Container>

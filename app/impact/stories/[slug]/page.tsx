@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container, Section } from "@/components/layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { MapPin, ArrowLeft } from "lucide-react";
 
 async function getStoryBySlug(slug: string) {
@@ -46,10 +47,14 @@ export default async function ImpactStoryPage({ params }: { params: { slug: stri
       <Section className="pt-24">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <Link href="/impact" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Impact
-            </Link>
+            <Breadcrumbs
+              items={[
+                { label: "Impact", href: "/impact" },
+                { label: "Stories", href: "/impact#stories" },
+                { label: story.title }
+              ]}
+              className="mb-8"
+            />
 
             <div className="mb-4 flex items-center gap-2">
               <Badge>{story.programCategory}</Badge>
