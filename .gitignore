@@ -43,3 +43,4 @@ next-env.d.ts
 # Large media/content (do not commit)
 public/**/*.mp4
 public/**/*.pdf
+public/**/02_Images-
