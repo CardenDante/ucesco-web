@@ -55,9 +55,10 @@ This document tracks the progress of updating website pages with accurate conten
 **Status: NEED UPDATES**
 
 #### Medical Camps (`app/programs/medical-camps/page.tsx`)
-- Add 2022-2025 impact statistics
-- Add pilot mini medical camps information
-- Update objectives and activities
+**Status: COMPLETED**
+- ✅ Added 2022-2025 impact statistics table (34,540 patients total)
+- ✅ Added pilot mini medical camps section (Samburu 2024)
+- ✅ Updated with official data
 
 #### Women Empowerment (`app/programs/women-empowerment/page.tsx`)
 - Add Samburu Women Empowerment Group details
@@ -176,7 +177,7 @@ export async function getVolunteerTestimonials() {
 | Contact | Contact details.docx | ✅ Done |
 | Sponsor | Child Sponsorship.docx | ✅ Done |
 | Programs | Programs & Projects.docx | ✅ Done |
-| Medical Camps | Programs & Projects.docx | ⏳ Pending |
+| Medical Camps | Programs & Projects.docx | ✅ Done |
 | Women Empowerment | Programs & Projects.docx | ⏳ Pending |
 | Education | Programs & Projects.docx | ⏳ Pending |
 | Youth Development | Programs & Projects.docx | ⏳ Pending |
