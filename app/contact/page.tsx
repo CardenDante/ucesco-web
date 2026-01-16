@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import { Hero, Section, Container } from "@/components/layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,13 +8,62 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { MapPin, Mail, Phone, Clock } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Contact Us | UCESCO Africa",
-  description: "Get in touch with UCESCO Africa. We're here to answer your questions about our programs, volunteering, sponsorship, and partnerships.",
-};
+import { toast } from "sonner";
 
 export default function ContactPage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success(data.message || "Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error(data.error || "Failed to send message");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <Hero
@@ -27,40 +78,78 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <h2 className="mb-6 text-2xl font-bold">Send Us a Message</h2>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name *</Label>
-                    <Input id="firstName" required />
+                    <Input
+                      id="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      disabled={isLoading}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name *</Label>
-                    <Input id="lastName" required />
+                    <Input
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      disabled={isLoading}
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" required />
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={isLoading}
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" />
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    disabled={isLoading}
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject *</Label>
-                  <Input id="subject" required />
+                  <Input
+                    id="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    disabled={isLoading}
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Message *</Label>
-                  <Textarea id="message" rows={6} required />
+                  <Textarea
+                    id="message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={isLoading}
+                    required
+                  />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  Send Message
+                <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
+                  {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>

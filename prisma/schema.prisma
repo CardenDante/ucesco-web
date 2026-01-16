@@ -1,0 +1,116 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin Users for dashboard access
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String   // Hashed password
+  role      String   @default("admin") // admin, superadmin
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Child Sponsorships
+model Sponsorship {
+  id              String        @id @default(cuid())
+  sponsorName     String
+  sponsorEmail    String
+  sponsorPhone    String?
+  childCode       String        // Reference to child (from Strapi or static data)
+  childName       String
+  amount          Float         // Monthly sponsorship amount
+  frequency       String        @default("monthly") // monthly, yearly
+  status          String        @default("active") // active, cancelled, paused
+  startDate       DateTime      @default(now())
+  nextBillingDate DateTime?
+  dpoToken        String?       // DPO subscription token
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  transactions    Transaction[]
+
+  @@index([sponsorEmail])
+  @@index([childCode])
+  @@index([status])
+}
+
+// One-time Donations
+model Donation {
+  id           String        @id @default(cuid())
+  donorName    String
+  donorEmail   String
+  donorPhone   String?
+  amount       Float
+  purpose      String?       // General, Medical, Education, etc.
+  message      String?
+  status       String        @default("pending") // pending, completed, failed
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+
+  @@index([donorEmail])
+  @@index([status])
+}
+
+// Payment Transactions (both sponsorships and donations)
+model Transaction {
+  id               String       @id @default(cuid())
+  type             String       // sponsorship, donation
+  amount           Float
+  currency         String       @default("USD")
+  status           String       // pending, completed, failed, refunded
+  paymentMethod    String       @default("dpo") // dpo, card, mpesa, etc.
+  dpoTransactionId String?      @unique
+  dpoReference     String?
+  sponsorshipId    String?
+  donationId       String?
+  metadata         Json?        // Additional payment metadata
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  sponsorship      Sponsorship? @relation(fields: [sponsorshipId], references: [id], onDelete: Cascade)
+  donation         Donation?    @relation(fields: [donationId], references: [id], onDelete: Cascade)
+
+  @@index([dpoTransactionId])
+  @@index([status])
+  @@index([sponsorshipId])
+  @@index([donationId])
+}
+
+// Contact Form Submissions
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  status    String   @default("new") // new, read, replied
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([email])
+}
+
+// Newsletter Subscriptions
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  status    String   @default("active") // active, unsubscribed
+  source    String?  // footer, blog, etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+}

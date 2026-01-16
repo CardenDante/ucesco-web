@@ -44,3 +44,5 @@ next-env.d.ts
 public/**/*.mp4
 public/**/*.pdf
 public/**/02_Images-
+
+/lib/generated/prisma

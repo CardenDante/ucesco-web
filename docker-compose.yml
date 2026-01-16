@@ -16,6 +16,21 @@ services:
     networks:
       - ucesco-network
 
+  postgres-app:
+    image: postgres:15-alpine
+    container_name: ucesco-postgres-app
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ucesco
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-app-data:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+    networks:
+      - ucesco-network
+
   strapi:
     image: node:18-alpine
     container_name: ucesco-strapi
@@ -47,6 +62,7 @@ services:
 
 volumes:
   postgres-data:
+  postgres-app-data:
 
 networks:
   ucesco-network:

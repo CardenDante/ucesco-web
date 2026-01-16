@@ -4,15 +4,36 @@ import { useState } from "react";
 import { Button } from "./button";
 import { Input } from "./input";
 import { Mail } from "lucide-react";
+import { toast } from "sonner";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with email service
-    console.log("Newsletter signup:", email);
-    setEmail("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer" }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success(data.message || "Successfully subscribed!");
+        setEmail("");
+      } else {
+        toast.error(data.error || "Failed to subscribe");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -26,9 +47,12 @@ export function NewsletterSignup() {
           onChange={(e) => setEmail(e.target.value)}
           className="pl-10"
           required
+          disabled={isLoading}
         />
       </div>
-      <Button type="submit">Subscribe</Button>
+      <Button type="submit" disabled={isLoading}>
+        {isLoading ? "..." : "Subscribe"}
+      </Button>
     </form>
   );
 }
