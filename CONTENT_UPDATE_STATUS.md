@@ -121,31 +121,15 @@ This document tracks the progress of updating website pages with accurate conten
 - Partnership information
 
 ### 8. Impact Page (`app/impact/page.tsx`)
-**Status: NEEDS MAJOR UPDATE**
+**Status: COMPLETED**
 **Source: `Our Impact.docx`**
 
-**Available Statistical Data:**
-
-**Women Trained Through Empowerment Programs:**
-- 2022: 200
-- 2023: 250
-- 2024: 300
-- 2025: 58
-- **Total: 808 women**
-
-**Free Medical Camps – Patients Served:**
-- 2022 (Nairobi): 3,847
-- 2023 (Nairobi): 5,493
-- 2024 (Nairobi): 10,906
-- 2024 (Samburu Mini Camp): 366
-- 2025 (Nairobi): 13,928
-- **Total: 34,540 patients**
-
-**Education Sponsorships Awarded:**
-- 2022: 27
-- 2023: 17
-- 2024: 36
-- 2025: 90
+- ✅ Updated annual impact highlights (34,540 patients, 808 women, 170 students)
+- ✅ Added detailed medical camps statistics table with year-by-year breakdown (2022-2025)
+- ✅ Added women empowerment year cards (2022: 200, 2023: 250, 2024: 300, 2025: 58)
+- ✅ Added education sponsorships year cards (2022: 27, 2023: 17, 2024: 36, 2025: 90)
+- ✅ Kept Reports & Documentation section
+- ✅ Kept Awards & Recognition section
 
 ### 9. Get Involved Page (`app/get-involved/page.tsx`)
 **Status: NEEDS UPDATE**
@@ -208,7 +192,7 @@ export async function getVolunteerTestimonials() {
 | Food Security | Programs & Projects.docx | ⏳ Pending |
 | Volunteer | Volunteer Program.docx | ⏳ Pending |
 | Meaningful Travel | Programs & Projects.docx | ⏳ Pending |
-| Impact | Our Impact.docx | ⏳ Pending |
+| Impact | Our Impact.docx | ✅ Done |
 | Get Involved | Get Involved.docx | ⏳ Pending |
 
 ## 🚀 Next Steps
