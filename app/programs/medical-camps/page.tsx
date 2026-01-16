@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero, Section, Container } from "@/components/layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { CheckCircle, Heart } from "lucide-react";
 
@@ -123,26 +123,94 @@ export default function MedicalCampsPage() {
       {/* Impact & Statistics */}
       <Section>
         <Container>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Our Impact</h2>
-            <div className="mt-12 grid gap-8 md:grid-cols-4">
-              <div>
-                <div className="text-4xl font-bold text-primary">150+</div>
-                <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">Medical Camps</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary">25,000+</div>
-                <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">Patients Served</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary">500+</div>
-                <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">Medical Professionals</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary">10+</div>
-                <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">Partner Hospitals</div>
-              </div>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold sm:text-4xl">Our Impact (2022-2025)</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Comprehensive healthcare data from our annual and mini medical camps
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-4xl">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="pb-3 text-left font-semibold">Type of Camp</th>
+                        <th className="pb-3 text-left font-semibold">Location</th>
+                        <th className="pb-3 text-right font-semibold">Patients Treated</th>
+                        <th className="pb-3 text-right font-semibold">Year</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y">
+                      <tr>
+                        <td className="py-3 text-sm">Annual Medical Camp</td>
+                        <td className="py-3 text-sm">Nairobi</td>
+                        <td className="py-3 text-right font-semibold">3,847</td>
+                        <td className="py-3 text-right text-sm text-muted-foreground">2022</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 text-sm">Annual Medical Camp</td>
+                        <td className="py-3 text-sm">Nairobi</td>
+                        <td className="py-3 text-right font-semibold">5,493</td>
+                        <td className="py-3 text-right text-sm text-muted-foreground">2023</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 text-sm">Annual Medical Camp</td>
+                        <td className="py-3 text-sm">Nairobi</td>
+                        <td className="py-3 text-right font-semibold">10,906</td>
+                        <td className="py-3 text-right text-sm text-muted-foreground">2024</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 text-sm">Mini Medical Camp</td>
+                        <td className="py-3 text-sm">Samburu (Ichingei Village)</td>
+                        <td className="py-3 text-right font-semibold">366</td>
+                        <td className="py-3 text-right text-sm text-muted-foreground">2024</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 text-sm">Annual Medical Camp</td>
+                        <td className="py-3 text-sm">Nairobi</td>
+                        <td className="py-3 text-right font-semibold">13,928</td>
+                        <td className="py-3 text-right text-sm text-muted-foreground">2025</td>
+                      </tr>
+                      <tr className="border-t-2 border-primary/20 bg-primary/5">
+                        <td className="py-3 text-sm font-bold" colSpan={2}>Total (2022–2025)</td>
+                        <td className="py-3 text-right text-xl font-bold text-primary">34,540</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Mini Medical Camps */}
+      <Section className="bg-muted/50">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-6 text-2xl font-bold">Pilot Mini Medical Camps</h2>
+            <Card>
+              <CardHeader>
+                <CardTitle>Samburu Mini Medical Camps</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  In 2024, UCESCO launched pilot mini medical camps in Samburu County's Ichingei Village,
+                  reaching 366 patients in remote, underserved communities. These smaller, targeted camps
+                  bring healthcare to areas with limited access to medical facilities, providing consultations,
+                  diagnostics, medication, and health education.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  The success of this pilot program demonstrates the effectiveness of decentralized healthcare
+                  delivery in reaching the most vulnerable populations. We plan to expand mini medical camps
+                  to more remote areas across Kenya and Uganda.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </Section>
