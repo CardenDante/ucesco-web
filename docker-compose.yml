@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ucesco-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ucesco_strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi123
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - ucesco-network
+
+  strapi:
+    image: node:18-alpine
+    container_name: ucesco-strapi
+    restart: unless-stopped
+    working_dir: /app
+    command: sh -c "npm install && npm run develop"
+    environment:
+      NODE_ENV: development
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ucesco_strapi
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi123
+      DATABASE_SSL: false
+      JWT_SECRET: changeme_jwt_secret_key_production
+      ADMIN_JWT_SECRET: changeme_admin_jwt_secret_key_production
+      APP_KEYS: changeme_app_key1,changeme_app_key2,changeme_app_key3,changeme_app_key4
+      API_TOKEN_SALT: changeme_api_token_salt
+      TRANSFER_TOKEN_SALT: changeme_transfer_token_salt
+    volumes:
+      - ./strapi:/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - postgres
+    networks:
+      - ucesco-network
+
+volumes:
+  postgres-data:
+
+networks:
+  ucesco-network:
+    driver: bridge
