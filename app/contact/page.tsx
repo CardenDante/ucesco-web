@@ -171,12 +171,19 @@ export default function ContactPage() {
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Our Locations</h3>
+                      <h3 className="font-semibold">Main Office – Nairobi (Kenya)</h3>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Kenya: Nairobi, Samburu, Mathare, Kibera, Busia
+                        Kibera Plaza, Kibera, Nairobi, Kenya
+                      </p>
+                      <p className="mt-2 text-sm font-semibold">Other Offices:</p>
+                      <p className="text-sm text-muted-foreground">
+                        • Samburu: Ichingei Village, Samburu, Kenya
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Uganda: Kampala and surrounding regions
+                        • Mombasa: Makupa, Mombasa, Kenya
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        • Uganda: Ggaba, Kampala, Uganda
                       </p>
                     </div>
                   </div>
@@ -188,10 +195,16 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold">Email</h3>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        info@ucesco.org
+                        <strong>General:</strong> info@ucesco.org
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        volunteer@ucesco.org
+                        <strong>Partnerships:</strong> partnerships@ucesco.org
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Programs:</strong> programs@ucesco.org
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Development:</strong> development@ucesco.org
                       </p>
                     </div>
                   </div>
@@ -201,12 +214,18 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Phone</h3>
+                      <h3 className="font-semibold">Phone / WhatsApp</h3>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Kenya: +254 123 456 789
+                        <strong>Nairobi:</strong> +254 110 547 515
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Uganda: +256 987 654 321
+                        <strong>Samburu:</strong> +254 741 388 516
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Mombasa:</strong> +254 718 611 095
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Uganda:</strong> +256 777 520 585 / +256 754 854 965
                       </p>
                     </div>
                   </div>
