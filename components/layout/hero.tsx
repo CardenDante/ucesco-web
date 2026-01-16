@@ -23,22 +23,28 @@ export function Hero({
   size = "lg",
 }: HeroProps) {
   const sizeClasses = {
-    sm: "py-16 sm:py-20",
-    md: "py-24 sm:py-32",
-    lg: "py-32 sm:py-40 lg:py-48",
+    sm: "min-h-[30vh]",
+    md: "min-h-[45vh]",
+    lg: "min-h-[60vh]",
   };
 
   return (
-    <section className={cn("relative overflow-hidden", sizeClasses[size], className)}>
+    <section
+      className={cn(
+        "relative flex items-center justify-center overflow-hidden pt-28 pb-20",
+        sizeClasses[size],
+        className
+      )}
+    >
       {/* Background Video */}
       {backgroundVideo && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="h-full w-full object-cover"
+            className="absolute top-1/2 left-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
@@ -53,21 +59,26 @@ export function Hero({
         />
       )}
 
-      {/* Overlay */}
+      {/* Overlay for better text visibility */}
       {overlay && (backgroundImage || backgroundVideo) && (
-        <div className="absolute inset-0 z-10 bg-black/50" />
+        <>
+          <div className="absolute inset-0 z-10 bg-black/30" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
+        </>
       )}
 
       {/* Content */}
-      <Container className="relative z-20">
-        <div className="mx-auto max-w-4xl text-center">
+      <Container className="relative z-20 px-6">
+        <div className="mx-auto max-w-3xl text-center">
           <h1
             className={cn(
-              "font-bold tracking-tight",
-              backgroundImage || backgroundVideo ? "text-white" : "text-foreground",
-              size === "lg" && "text-4xl sm:text-5xl lg:text-6xl",
-              size === "md" && "text-3xl sm:text-4xl lg:text-5xl",
-              size === "sm" && "text-2xl sm:text-3xl lg:text-4xl"
+              "font-display font-bold tracking-tight leading-[1.1]",
+              backgroundImage || backgroundVideo
+                ? "text-white drop-shadow-lg"
+                : "text-foreground",
+              size === "lg" && "text-3xl sm:text-4xl md:text-5xl lg:text-6xl",
+              size === "md" && "text-2xl sm:text-3xl md:text-4xl lg:text-5xl",
+              size === "sm" && "text-xl sm:text-2xl md:text-3xl lg:text-4xl"
             )}
           >
             {title}
@@ -75,16 +86,16 @@ export function Hero({
           {description && (
             <p
               className={cn(
-                "mt-6 text-lg leading-8 sm:text-xl",
+                "mt-4 sm:mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto",
                 backgroundImage || backgroundVideo
-                  ? "text-gray-200"
+                  ? "text-white/90 drop-shadow-md"
                   : "text-muted-foreground"
               )}
             >
               {description}
             </p>
           )}
-          {children && <div className="mt-10">{children}</div>}
+          {children && <div className="mt-6 sm:mt-8">{children}</div>}
         </div>
       </Container>
     </section>

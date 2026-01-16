@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Hero } from "@/components/layout";
 import { StatsSection } from "@/components/home/stats-section";
 import { ProgramHighlights } from "@/components/home/program-highlights";
+import { LatestNews } from "@/components/home/latest-news";
 import { FeaturedStories } from "@/components/home/featured-stories";
 import { HowYouCanHelp } from "@/components/home/how-you-can-help";
 import { PartnersSection } from "@/components/home/partners-section";
@@ -20,15 +22,15 @@ export default function HomePage() {
         overlay={true}
         size="lg"
       >
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
+        <div className="flex flex-row items-center justify-center gap-3">
+          <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-sm sm:text-base px-4 sm:px-6">
             <Link href="/sponsor">
               Sponsor a Child
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 hidden sm:inline" />
             </Link>
           </Button>
-          <Button size="lg" asChild variant="outline" className="border-white bg-white/10 text-white backdrop-blur hover:bg-white/20">
-            <Link href="/donate">Make a Donation</Link>
+          <Button size="lg" asChild variant="outline" className="border-white bg-white/10 text-white backdrop-blur hover:bg-white/20 text-sm sm:text-base px-4 sm:px-6">
+            <Link href="/donate">Donate</Link>
           </Button>
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-white/90">
@@ -48,6 +50,9 @@ export default function HomePage() {
       {/* Program Highlights */}
       <ProgramHighlights />
 
+      {/* Latest News & Events */}
+      <LatestNews />
+
       {/* Featured Impact Stories */}
       <FeaturedStories />
 
@@ -61,22 +66,41 @@ export default function HomePage() {
       <TrustSection />
 
       {/* Call to Action Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary py-20 text-primary-foreground">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Ready to Make a Difference?
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-primary-foreground/90">
-            Join thousands of supporters who are transforming lives across East Africa.
-            Your contribution, big or small, creates lasting change.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" asChild variant="secondary">
-              <Link href="/get-involved">Get Involved Today</Link>
-            </Button>
-            <Button size="lg" asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10">
-              <Link href="/about">Learn More About Us</Link>
-            </Button>
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 text-center shadow-xl">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Impact-/IMG_7270.JPG"
+                alt="Community impact"
+                fill
+                className="object-cover"
+                priority={false}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/80 to-secondary/85" />
+            </div>
+
+            <div className="relative z-10 mx-auto max-w-3xl">
+              <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white">
+                Ready to Make a Difference?
+              </h2>
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg leading-relaxed text-white/90">
+                Join thousands of supporters who are transforming lives across East Africa.
+                Your contribution, big or small, creates lasting change.
+              </p>
+              <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row">
+                <Button size="lg" asChild variant="secondary" className="w-full sm:w-auto">
+                  <Link href="/get-involved">
+                    Get Involved Today
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" asChild variant="outline" className="w-full sm:w-auto border-white bg-white/10 text-white hover:bg-white/20 backdrop-blur">
+                  <Link href="/about">Learn More About Us</Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

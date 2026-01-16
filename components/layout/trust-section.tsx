@@ -1,5 +1,4 @@
 import { Section, Container } from "@/components/layout";
-import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Award, Users, TrendingUp } from "lucide-react";
 
 const trustFactors = [
@@ -27,35 +26,47 @@ const trustFactors = [
 
 export function TrustSection() {
   return (
-    <Section className="bg-muted/30">
+    <Section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">Why Trust UCESCO Africa</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Transparent, accountable, and committed to lasting impact
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">
+            Why Trust UCESCO Africa
+          </h2>
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600">
+            Transparent, accountable, and committed to creating lasting impact in every community we serve
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {trustFactors.map((factor, index) => (
-            <Card key={index} className="text-center">
-              <CardContent className="pt-6">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
-                  <factor.icon className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold text-lg mb-2">{factor.title}</h3>
-                <p className="text-sm text-muted-foreground">{factor.description}</p>
-              </CardContent>
-            </Card>
+            <div
+              key={index}
+              className="text-center p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl border border-slate-100 hover:border-primary/20 hover:shadow-md transition-all duration-300"
+            >
+              <div className="mb-4">
+                <factor.icon className="h-10 w-10 sm:h-12 sm:w-12 text-primary mx-auto" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg text-slate-900 mb-2">
+                {factor.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {factor.description}
+              </p>
+            </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
-            <strong>Tax ID:</strong> Available upon request •
-            <strong className="ml-2">Audited Annually</strong> by independent firms •
-            <strong className="ml-2">Child Safeguarding</strong> certified
-          </p>
+        <div className="mt-10 sm:mt-12 text-center">
+          <div className="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs sm:text-sm text-slate-600">
+            <span className="flex items-center gap-1.5">
+              <span className="font-semibold text-slate-900">Tax ID:</span>
+              <span>Available upon request</span>
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="font-semibold text-slate-900">Audited Annually</span>
+            <span className="text-slate-300">•</span>
+            <span className="font-semibold text-slate-900">Child Safeguarding Certified</span>
+          </div>
         </div>
       </Container>
     </Section>
