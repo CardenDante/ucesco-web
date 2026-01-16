@@ -12,46 +12,51 @@ export const metadata: Metadata = {
 const values = [
   {
     icon: Heart,
-    title: "Compassion",
-    description: "We approach every community with empathy, dignity, and respect, putting people at the heart of everything we do.",
+    title: "Dignity & Respect",
+    description: "We uphold the inherent worth of every individual and community.",
+  },
+  {
+    icon: MapPin,
+    title: "Community-Centered Action",
+    description: "We work alongside communities to co-create lasting solutions.",
   },
   {
     icon: Target,
     title: "Sustainability",
-    description: "We focus on long-term, sustainable solutions that empower communities to thrive independently.",
+    description: "We prioritize long-term impact over short-term relief.",
   },
   {
     icon: Eye,
-    title: "Transparency",
-    description: "We operate with complete transparency, ensuring accountability to the communities we serve and our supporters.",
+    title: "Equity & Inclusion",
+    description: "We serve without discrimination, ensuring access for the most marginalized.",
   },
   {
-    icon: MapPin,
-    title: "Community-Led",
-    description: "We work alongside communities, listening to their needs and empowering local leadership.",
+    icon: Heart,
+    title: "Partnership & Accountability",
+    description: "We value collaboration, transparency, and measurable impact.",
   },
 ];
 
 const regions = [
   {
-    name: "Samburu, Kenya",
-    description: "Supporting nomadic communities with healthcare, education, and livelihood programs in Northern Kenya.",
+    name: "Nairobi County (Kibera, Mathare, Kayole, Kariobangi)",
+    description: "Education support, early childhood development, secondary schooling, school feeding programs, youth empowerment initiatives, women's vocational training, rescue and child protection services, and annual and mini free medical camps.",
   },
   {
-    name: "Mathare, Nairobi",
-    description: "Providing education, child sponsorship, and youth development programs in one of Nairobi's largest informal settlements.",
+    name: "Samburu County (Ichingei Village)",
+    description: "Access to education for pastoralist communities, women's empowerment groups, youth talent development, and community health outreach.",
   },
   {
-    name: "Kibera, Nairobi",
-    description: "Empowering women and children through education, healthcare, and economic opportunity programs.",
+    name: "Mombasa County",
+    description: "Partner schools, women's empowerment initiatives, food security programs, marine conservation, mangrove restoration, and beach clean-up activities.",
   },
   {
-    name: "Busia, Kenya",
-    description: "Supporting border communities with medical camps, agricultural training, and food security initiatives.",
+    name: "Uganda (Ggaba and Wakiso)",
+    description: "Early childhood education, women's vocational training, community health support, childcare programs, and youth mentorship initiatives delivered in partnership with local institutions.",
   },
   {
-    name: "Uganda",
-    description: "Expanding our healthcare and education programs to underserved communities across Uganda.",
+    name: "Other Counties",
+    description: "Periodic outreach programs, medical camps, and environmental initiatives implemented in collaboration with local partners.",
   },
 ];
 
@@ -74,9 +79,8 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-bold">Our Mission</h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                To empower underserved communities across Kenya and Uganda through sustainable programs in healthcare,
-                education, women empowerment, youth development, and livelihood support. We believe in creating
-                lasting change by working alongside communities to build their capacity for self-sufficiency.
+                To empower vulnerable women, children, and underserved communities through education, healthcare,
+                and economic opportunities that foster dignity, resilience, and sustainable development.
               </p>
             </div>
             <div>
@@ -85,9 +89,8 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-bold">Our Vision</h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                A thriving East Africa where every individual has access to quality healthcare, education, and
-                economic opportunities. We envision communities that are resilient, self-reliant, and empowered to
-                create their own sustainable futures.
+                A just and inclusive society where every individual has access to quality education, essential
+                health services, and opportunities to thrive.
               </p>
             </div>
           </div>
@@ -98,16 +101,28 @@ export default function AboutPage() {
       <Section className="bg-muted/50">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Our Story</h2>
+            <h2 className="text-3xl font-bold sm:text-4xl">Organizational Background</h2>
             <div className="mt-8 space-y-4 text-left text-lg leading-relaxed text-muted-foreground">
               <p>
-                UCESCO Africa was founded with a simple but powerful vision: to transform lives through sustainable
-                community development. What started as a small initiative to provide medical care to underserved
-                communities has grown into a comprehensive organization addressing multiple facets of community wellbeing.
+                United Cultural Empowerment & Social Community Organization – Africa (UCESCO) is a 501(c)3 organization
+                registered in Croydon, PA 19021, United States, committed to changing lives through education, health
+                initiatives, empowerment, environmental care, and community development throughout East Africa.
               </p>
               <p>
-                Over the years, we've expanded our programs to include education support, women empowerment initiatives,
-                youth development, and food security projects. Our holistic approach recognizes that true transformation
+                Established in 2014, UCESCO-Africa was created to address ongoing disparities in access to essential
+                services for underserved communities. Since its inception, the organization has focused on working directly
+                with communities in urban informal settlements, rural villages, and marginalized regions to deliver practical,
+                people-centered solutions.
+              </p>
+              <p>
+                UCESCO's approach emphasizes partnership, volunteerism, and locally informed programming to ensure interventions
+                are relevant, inclusive, and sustainable. Today, UCESCO-Africa operates across Kenya and Uganda implementing
+                integrated programs that address education, healthcare, women's economic empowerment, youth development, food
+                security, and environmental conservation.
+              </p>
+              <p>
+                Through collaboration with local institutions, international partners, and volunteers, the organization promotes
+                dignity, opportunity, and long-term resilience within the communities it serves.
                 requires addressing the interconnected challenges that communities face.
               </p>
               <p>
