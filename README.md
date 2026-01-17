@@ -177,4 +177,4 @@ docker-compose -f docker-compose.prod.yml up -d
 
 ---
 
-Built with ❤️ by UCESCO Africa
+Built by Chacha Technologies
