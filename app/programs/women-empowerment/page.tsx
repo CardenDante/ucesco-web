@@ -82,8 +82,10 @@ export default function WomenEmpowermentPage() {
       <Hero
         title="Women Empowerment & Microbusiness Support"
         description="Creating pathways to economic independence and self-sufficiency for women across Kenya"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Women_Empowerment-/IMG_8086.jpg"
+        overlay={true}
+        overlayColor="primary"
         size="md"
-        className="bg-purple-500/10"
       />
 
       <Section className="py-4">
@@ -98,37 +100,33 @@ export default function WomenEmpowermentPage() {
       </Section>
 
       {/* Program Overview */}
-      <Section>
+      <Section className="py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-500/10">
-                <Users className="h-6 w-6 text-purple-500" />
-              </div>
-              <h2 className="text-3xl font-bold">Affordable, Practical, Certified Training</h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              <Users className="h-10 w-10 text-primary mb-5" strokeWidth={1.5} />
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Affordable, Practical, Certified Training</h2>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
                 Most of our students are young women who never thought they could afford school. Through
                 vocational, entrepreneurship, and skills-based programs across Nairobi, Samburu, and Mombasa,
                 we enable sustainable livelihoods and household stability.
               </p>
-              <p className="mt-4 text-lg font-semibold text-purple-600">
+              <p className="mt-4 text-sm sm:text-base font-semibold text-primary">
                 "Toa Ndogo, Badilisha Maisha." <br/>
-                <span className="text-base text-muted-foreground">Even a small gift can create a future. Be the Spark.</span>
+                <span className="text-sm sm:text-base font-normal text-slate-600">Even a small gift can create a future. Be the Spark.</span>
               </p>
             </div>
             <div>
-              <h3 className="mb-6 text-2xl font-semibold">Training Areas</h3>
+              <h3 className="mb-6 text-lg sm:text-xl font-semibold text-slate-900">Training Areas</h3>
               <div className="space-y-4">
                 {trainingAreas.map((area, index) => {
                   const IconComponent = area.icon;
                   return (
                     <div key={index} className="flex items-start gap-3">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-500/10">
-                        <IconComponent className="h-5 w-5 text-purple-500" />
-                      </div>
+                      <IconComponent className="h-5 w-5 flex-shrink-0 text-primary mt-0.5" />
                       <div>
-                        <h4 className="font-semibold">{area.name}</h4>
-                        <p className="text-sm text-muted-foreground">{area.description}</p>
+                        <h4 className="text-sm sm:text-base font-semibold text-slate-900">{area.name}</h4>
+                        <p className="text-xs sm:text-sm text-slate-600">{area.description}</p>
                       </div>
                     </div>
                   );
@@ -140,143 +138,122 @@ export default function WomenEmpowermentPage() {
       </Section>
 
       {/* Impact Statistics */}
-      <Section className="bg-purple-500/10">
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl">Our Impact (2022-2025)</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+      <Section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-primary" />
+        <Container className="relative z-10">
+          <div className="text-center">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white">Women Empowered (2022-2025)</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/90 max-w-2xl mx-auto">
               Empowering women through training and skills development
             </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-purple-600">200</CardTitle>
-                <p className="text-sm text-muted-foreground">2022</p>
-              </CardHeader>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-purple-600">250</CardTitle>
-                <p className="text-sm text-muted-foreground">2023</p>
-              </CardHeader>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-purple-600">300</CardTitle>
-                <p className="text-sm text-muted-foreground">2024</p>
-              </CardHeader>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-purple-600">58</CardTitle>
-                <p className="text-sm text-muted-foreground">2025</p>
-              </CardHeader>
-            </Card>
-          </div>
-
-          <Card className="mt-8 border-2 border-purple-600">
-            <CardContent className="flex items-center justify-between p-6">
+            <div className="mt-12 grid gap-8 md:grid-cols-4">
               <div>
-                <p className="text-sm font-semibold text-muted-foreground">Total Women Empowered</p>
-                <p className="mt-1 text-3xl font-bold text-purple-600">808 Women</p>
+                <div className="text-3xl sm:text-4xl font-bold text-white">200</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2022</div>
               </div>
-              <Users className="h-16 w-16 text-purple-600/20" />
-            </CardContent>
-          </Card>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold text-white">250</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2023</div>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold text-white">300</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2024</div>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold text-white">58</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2025</div>
+              </div>
+            </div>
+            <div className="mt-8 p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white/10 border border-white/20 max-w-md mx-auto">
+              <div className="text-xs sm:text-sm uppercase tracking-wide text-white/90">Total Women Empowered</div>
+              <div className="mt-1 text-3xl sm:text-4xl font-bold text-white">808 Women</div>
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* Program Locations */}
-      <Section>
+      <Section className="py-12 sm:py-16 lg:py-20">
         <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl">Our Programs Across Kenya</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">Our Programs Across Kenya</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto">
               Three locations serving women in different communities
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             {locations.map((loc, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-6 w-6 mt-1 text-purple-500 flex-shrink-0" />
-                    <div>
-                      <CardTitle className="text-xl">{loc.name}</CardTitle>
-                      <CardDescription className="text-base">{loc.location}</CardDescription>
+              <div key={index} className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-all">
+                <div className="flex items-start gap-3 mb-4">
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 mt-1 text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-slate-900">{loc.name}</h3>
+                    <p className="text-sm sm:text-base text-primary">{loc.location}</p>
+                  </div>
+                </div>
+                <p className="text-sm sm:text-base text-slate-600 mb-4">{loc.description}</p>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {loc.focus.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-slate-600">{item}</span>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{loc.description}</p>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {loc.focus.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 mt-0.5 text-secondary flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
       {/* How to Help - Sponsorship Packages */}
-      <Section className="bg-muted/50">
+      <Section className="py-12 sm:py-16 lg:py-20 bg-primary/5">
         <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl">How to Help</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">How to Help</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto">
               Choose a sponsorship package that fits your capacity to give
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {sponsorshipPackages.map((pkg, index) => (
-              <Card key={index} className="hover:border-purple-500 transition-colors">
-                <CardHeader>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600">{pkg.amount}</div>
-                    <CardTitle className="mt-4 text-xl">{pkg.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {pkg.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 mt-0.5 text-secondary flex-shrink-0" />
-                        <span className="text-sm">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild className="w-full mt-6">
-                    <Link href="/donate">Sponsor Now</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              <div key={index} className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-all">
+                <div className="text-center mb-5">
+                  <div className="text-2xl sm:text-3xl font-bold text-primary">{pkg.amount}</div>
+                  <h3 className="mt-3 sm:mt-4 text-lg sm:text-xl font-semibold text-slate-900">{pkg.title}</h3>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  {pkg.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-slate-600">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="w-full">
+                  <Link href="/donate">Sponsor Now</Link>
+                </Button>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-primary text-primary-foreground">
+      <Section className="py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Support Women Empowerment</h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">Support Women Empowerment</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto">
               Help us empower more women to achieve economic independence and transform their communities
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild variant="secondary">
+            <div className="mt-6 sm:mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button size="lg" asChild>
                 <Link href="/donate">Donate Now</Link>
               </Button>
-              <Button size="lg" asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10">
+              <Button size="lg" asChild variant="outline">
                 <Link href="/volunteer">Volunteer</Link>
               </Button>
             </div>

@@ -69,7 +69,10 @@ export default function ContactPage() {
       <Hero
         title="Contact Us"
         description="We'd love to hear from you. Get in touch with our team."
-        size="sm"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Homepage-/Hero%20image.JPG"
+        overlay={true}
+        overlayColor="primary"
+        size="md"
       />
 
       <Section>

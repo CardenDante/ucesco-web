@@ -16,6 +16,9 @@ export default function ImpactPage() {
       <Hero
         title="Our Impact"
         description="Measuring the difference we make together"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Impact-/IMG_7395.JPG"
+        overlay={true}
+        overlayColor="primary"
         size="md"
       />
 

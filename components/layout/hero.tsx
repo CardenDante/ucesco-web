@@ -8,6 +8,7 @@ interface HeroProps {
   backgroundImage?: string;
   backgroundVideo?: string;
   overlay?: boolean;
+  overlayColor?: "dark" | "primary";
   className?: string;
   size?: "sm" | "md" | "lg";
 }
@@ -19,6 +20,7 @@ export function Hero({
   backgroundImage,
   backgroundVideo,
   overlay = true,
+  overlayColor = "dark",
   className,
   size = "lg",
 }: HeroProps) {
@@ -62,8 +64,16 @@ export function Hero({
       {/* Overlay for better text visibility */}
       {overlay && (backgroundImage || backgroundVideo) && (
         <>
-          <div className="absolute inset-0 z-10 bg-black/30" />
-          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
+          {overlayColor === "primary" ? (
+            <>
+              <div className="absolute inset-0 z-10 bg-gradient-to-br from-primary/70 via-primary/65 to-secondary/70" />
+            </>
+          ) : (
+            <>
+              <div className="absolute inset-0 z-10 bg-black/30" />
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
+            </>
+          )}
         </>
       )}
 

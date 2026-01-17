@@ -39,6 +39,9 @@ export default function MeaningfulTravelPage() {
       <Hero
         title="Meaningful Travel"
         description="Travel with purpose. Experience authentic culture while making positive impact."
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Meaningful_Travel-/IMG_6900.JPG"
+        overlay={true}
+        overlayColor="primary"
         size="md"
       />
 

@@ -46,8 +46,10 @@ export default function EducationPage() {
       <Hero
         title="Education & Child Support / Scholarships"
         description="Supporting learners from primary school through higher education based on need and available opportunities"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Programs-/IMG_8085.jpg"
+        overlay={true}
+        overlayColor="primary"
         size="md"
-        className="bg-blue-500/10"
       />
 
       <Section className="py-4">
@@ -62,33 +64,31 @@ export default function EducationPage() {
       </Section>
 
       {/* Program Overview */}
-      <Section>
+      <Section className="py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
-                <GraduationCap className="h-6 w-6 text-blue-500" />
-              </div>
-              <h2 className="text-3xl font-bold">Program Overview</h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              <GraduationCap className="h-10 w-10 text-primary mb-5" strokeWidth={1.5} />
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Program Overview</h2>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
                 Education is the foundation for breaking the cycle of poverty. Our comprehensive education
                 scholarships support learners from primary school through higher education, providing full
                 scholarship packages that include school fees, uniforms, learning materials, and comprehensive
                 support based on need and available opportunities.
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
                 We create lasting relationships between sponsors and students, ensuring consistent support
                 throughout their education journey. Beyond academics, we provide mentorship, counseling,
                 and skills development to help students succeed.
               </p>
             </div>
             <div>
-              <h3 className="mb-4 text-xl font-semibold">Program Components</h3>
+              <h3 className="mb-4 text-lg sm:text-xl font-semibold text-slate-900">Program Components</h3>
               <ul className="space-y-3">
                 {programs.map((program, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-secondary" />
-                    <span>{program}</span>
+                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                    <span className="text-sm sm:text-base text-slate-600">{program}</span>
                   </li>
                 ))}
               </ul>
@@ -98,30 +98,24 @@ export default function EducationPage() {
       </Section>
 
       {/* Support Levels */}
-      <Section className="bg-muted/50">
+      <Section className="py-12 sm:py-16 lg:py-20 bg-primary/5">
         <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl">Education Support Levels</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">Education Support Levels</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto">
               From early childhood through university - comprehensive support at every stage
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {supportLevels.map((level, index) => {
               const IconComponent = level.icon;
               return (
-                <Card key={index} className="text-center">
-                  <CardHeader>
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-500/10">
-                      <IconComponent className="h-8 w-8 text-blue-500" />
-                    </div>
-                    <CardTitle className="mt-4">{level.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{level.description}</p>
-                  </CardContent>
-                </Card>
+                <div key={index} className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-all text-center">
+                  <IconComponent className="h-10 w-10 sm:h-12 sm:w-12 text-primary mx-auto mb-4" strokeWidth={1.5} />
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">{level.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-600">{level.description}</p>
+                </div>
               );
             })}
           </div>
@@ -129,117 +123,91 @@ export default function EducationPage() {
       </Section>
 
       {/* Impact Statistics */}
-      <Section>
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl">Education Sponsorships Awarded (2022-2025)</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+      <Section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-primary" />
+        <Container className="relative z-10">
+          <div className="text-center">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white">Education Sponsorships Awarded (2022-2025)</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/90 max-w-2xl mx-auto">
               Supporting learners at all levels based on need and available opportunities
             </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-blue-600">27</CardTitle>
-                <p className="text-sm text-muted-foreground">2022</p>
-              </CardHeader>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-blue-600">17</CardTitle>
-                <p className="text-sm text-muted-foreground">2023</p>
-              </CardHeader>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-blue-600">36</CardTitle>
-                <p className="text-sm text-muted-foreground">2024</p>
-              </CardHeader>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-blue-600">90</CardTitle>
-                <p className="text-sm text-muted-foreground">2025</p>
-              </CardHeader>
-            </Card>
-          </div>
-
-          <Card className="mt-8 border-2 border-blue-600">
-            <CardContent className="flex items-center justify-between p-6">
+            <div className="mt-12 grid gap-8 md:grid-cols-4">
               <div>
-                <p className="text-sm font-semibold text-muted-foreground">Total Students Sponsored (2022-2025)</p>
-                <p className="mt-1 text-3xl font-bold text-blue-600">170 Students</p>
+                <div className="text-3xl sm:text-4xl font-bold text-white">27</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2022</div>
               </div>
-              <GraduationCap className="h-16 w-16 text-blue-600/20" />
-            </CardContent>
-          </Card>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold text-white">17</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2023</div>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold text-white">36</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2024</div>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold text-white">90</div>
+                <div className="mt-2 text-xs sm:text-sm uppercase tracking-wide text-white/90">2025</div>
+              </div>
+            </div>
+            <div className="mt-8 p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white/10 border border-white/20 max-w-md mx-auto">
+              <div className="text-xs sm:text-sm uppercase tracking-wide text-white/90">Total Students Sponsored (2022-2025)</div>
+              <div className="mt-1 text-3xl sm:text-4xl font-bold text-white">170 Students</div>
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* How Sponsorships Work */}
-      <Section className="bg-blue-500/10">
+      <Section className="py-12 sm:py-16 lg:py-20 bg-primary/5">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-8 text-center text-3xl font-bold">How Education Sponsorships Work</h2>
+            <h2 className="mb-8 sm:mb-10 text-center font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">How Education Sponsorships Work</h2>
 
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Need-Based Selection</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Students are selected based on demonstrated financial need, academic potential, and family
-                    circumstances. We prioritize children from the most vulnerable households who would otherwise
-                    be unable to access education.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="space-y-5 sm:space-y-6">
+              <div className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">Need-Based Selection</h3>
+                <p className="text-sm sm:text-base text-slate-600">
+                  Students are selected based on demonstrated financial need, academic potential, and family
+                  circumstances. We prioritize children from the most vulnerable households who would otherwise
+                  be unable to access education.
+                </p>
+              </div>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>Comprehensive Support</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Our scholarships cover all education-related costs including school fees, uniforms, learning
-                    materials, examination fees, and where possible, nutritional support. Students also receive
-                    mentorship, counseling, and career guidance.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">Comprehensive Support</h3>
+                <p className="text-sm sm:text-base text-slate-600">
+                  Our scholarships cover all education-related costs including school fees, uniforms, learning
+                  materials, examination fees, and where possible, nutritional support. Students also receive
+                  mentorship, counseling, and career guidance.
+                </p>
+              </div>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>Long-Term Commitment</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    We are committed to supporting sponsored students throughout their education journey, from
-                    primary school through secondary and in exceptional cases, higher education. This continuity
-                    ensures students can complete their education without interruption.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">Long-Term Commitment</h3>
+                <p className="text-sm sm:text-base text-slate-600">
+                  We are committed to supporting sponsored students throughout their education journey, from
+                  primary school through secondary and in exceptional cases, higher education. This continuity
+                  ensures students can complete their education without interruption.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-primary text-primary-foreground">
+      <Section className="py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Change a Child's Future Through Education</h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">Change a Child's Future Through Education</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto">
               Your support can give a child the gift of education and unlock their full potential
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild variant="secondary">
+            <div className="mt-6 sm:mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button size="lg" asChild>
                 <Link href="/sponsor">Sponsor a Child</Link>
               </Button>
-              <Button size="lg" asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10">
+              <Button size="lg" asChild variant="outline">
                 <Link href="/donate">Make a Donation</Link>
               </Button>
             </div>

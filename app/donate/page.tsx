@@ -44,6 +44,9 @@ export default function DonatePage() {
       <Hero
         title="Make a Donation"
         description="Your generosity transforms lives and builds sustainable futures"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Impact-/Donation%2012.JPG"
+        overlay={true}
+        overlayColor="primary"
         size="md"
       />
 

@@ -18,7 +18,7 @@ export default function HomePage() {
       <Hero
         title="Building Futures, Transforming Lives"
         description="Empowering communities across Kenya and Uganda through sustainable development, healthcare, education, and opportunity."
-        backgroundVideo="/Where Hope Takes Root I Education and Care for Communities.mp4"
+        backgroundVideo="/Where Hope Takes Root I Education And Care For Communities.mp4"
         overlay={true}
         size="lg"
       >

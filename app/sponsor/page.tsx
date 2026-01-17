@@ -136,6 +136,9 @@ export default function SponsorPage() {
       <Hero
         title="Sponsor a Child / Adopt a Child"
         description="Transform a child's life through needs-based support and sponsorship"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Child_Sponsorship-/IMG_5346.JPG"
+        overlay={true}
+        overlayColor="primary"
         size="md"
       />
 

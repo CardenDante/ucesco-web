@@ -14,7 +14,10 @@ export default function BlogPage() {
       <Hero
         title="Blog & News"
         description="Stories, updates, and insights from our work in communities"
-        size="sm"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Events-/Clean%20up%203.jpg"
+        overlay={true}
+        overlayColor="primary"
+        size="md"
       />
 
       <Section>

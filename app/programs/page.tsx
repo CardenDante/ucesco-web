@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Hero, Section, Container } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -25,8 +26,8 @@ const programs = [
     slug: "medical-camps",
     description: "Providing essential healthcare services to underserved communities across Kenya and Uganda. Our medical camps offer free consultations, diagnostics, medication, referrals, and health counseling.",
     icon: Heart,
-    color: "text-red-500",
-    bgColor: "bg-red-500/10",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     impact: "34,540+ patients treated (2022-2025)",
   },
   {
@@ -34,8 +35,8 @@ const programs = [
     slug: "women-empowerment",
     description: "Training women in vocational, entrepreneurship, and skills-based programs across Nairobi, Samburu, and Mombasa. We enable sustainable livelihoods and household stability through MVETI training programs.",
     icon: Users,
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     impact: "808 women empowered (2022-2025)",
   },
   {
@@ -43,8 +44,8 @@ const programs = [
     slug: "education",
     description: "Supporting learners from primary school through higher education with scholarships, school infrastructure, learning materials, and comprehensive education support based on need.",
     icon: GraduationCap,
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     impact: "170 students sponsored (2022-2025)",
   },
   {
@@ -52,8 +53,8 @@ const programs = [
     slug: "youth-development",
     description: "Nurturing young talent through sports coaching, creative arts programs (Mdundo Dance Crew), mentorship, and leadership development initiatives that foster self-expression and teamwork.",
     icon: TrendingUp,
-    color: "text-orange-500",
-    bgColor: "bg-orange-500/10",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     impact: "800+ youth engaged annually",
   },
   {
@@ -61,27 +62,9 @@ const programs = [
     slug: "food-security",
     description: "Sustainable agriculture training, school feeding programs, annual Christmas food drives, and community food support initiatives for long-term household and community resilience.",
     icon: Wheat,
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     impact: "300+ families supported annually",
-  },
-  {
-    title: "Volunteer & Internship Programs",
-    slug: "volunteer",
-    description: "Opportunities for individuals to contribute skills and time across education, healthcare, construction, women empowerment, youth development, and NGO management. Open to ages 14-67, on-site and remote.",
-    icon: HandHeart,
-    color: "text-teal-500",
-    bgColor: "bg-teal-500/10",
-    impact: "200+ volunteers hosted annually",
-  },
-  {
-    title: "Meaningful Travel Programmes",
-    slug: "meaningful-travel",
-    description: "Immersive cultural experiences combining community visits, cultural exchange, local immersion, and volunteer activities. Perfect for gap year students, professionals, retirees, and families seeking purposeful travel.",
-    icon: Plane,
-    color: "text-indigo-500",
-    bgColor: "bg-indigo-500/10",
-    impact: "Flexible durations & custom itineraries",
   },
 ];
 
@@ -91,60 +74,82 @@ export default function ProgramsPage() {
       <Hero
         title="Our Programs"
         description="Transforming lives through comprehensive community development initiatives"
+        backgroundImage="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Programs-/IMG_2723.jpg"
+        overlay={true}
+        overlayColor="primary"
         size="md"
       />
 
-      <Section>
+      <Section className="py-12 sm:py-16 lg:py-20">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-lg leading-relaxed text-muted-foreground">
+          <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
               UCESCO Africa implements holistic programs that address the interconnected challenges facing underserved
               communities. Our sustainable approach empowers communities to build their own brighter futures.
             </p>
           </div>
 
-          <div className="mt-16 space-y-12">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {programs.map((program, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="grid md:grid-cols-3">
-                  <div className={`flex items-center justify-center p-12 ${program.bgColor}`}>
-                    <program.icon className={`h-24 w-24 ${program.color}`} />
-                  </div>
-                  <div className="md:col-span-2">
-                    <CardHeader>
-                      <CardTitle className="text-2xl">{program.title}</CardTitle>
-                      <CardDescription className="text-base">{program.impact}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground">{program.description}</p>
-                      <Button asChild>
-                        <Link href={`/programs/${program.slug}`}>
-                          Learn More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
+              <Link
+                key={index}
+                href={`/programs/${program.slug}`}
+                className="group"
+              >
+                <div className="relative h-full p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300">
+                  {/* Icon */}
+                  <program.icon className={`h-10 w-10 sm:h-12 sm:w-12 ${program.color} mb-4 sm:mb-5`} strokeWidth={1.5} />
+
+                  {/* Content */}
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2 group-hover:text-primary transition-colors">
+                    {program.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-medium text-primary mb-3">
+                    {program.impact}
+                  </p>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4 sm:mb-5">
+                    {program.description}
+                  </p>
+
+                  {/* Link indicator */}
+                  <div className="flex items-center text-sm font-medium text-primary">
+                    Learn more
+                    <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </Card>
+              </Link>
             ))}
           </div>
         </Container>
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-primary text-primary-foreground">
-        <Container>
+      <Section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/UCESCO_WEBSITE_CONTENT_2026-01-01/02_Images-/Impact-/IMG_7270.JPG"
+            alt="Support our programs"
+            fill
+            className="object-cover"
+            priority={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-primary/95" />
+        </div>
+
+        <Container className="relative z-10">
           <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Want to Support Our Programs?</h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white">
+              Want to Support Our Programs?
+            </h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl mx-auto">
               Your support helps us expand our reach and deepen our impact in communities across East Africa.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild variant="secondary">
+            <div className="mt-6 sm:mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90">
                 <Link href="/donate">Make a Donation</Link>
               </Button>
-              <Button size="lg" asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10">
+              <Button size="lg" asChild className="bg-white/10 text-white border-2 border-white hover:bg-white hover:text-primary">
                 <Link href="/sponsor">Sponsor a Child</Link>
               </Button>
             </div>
