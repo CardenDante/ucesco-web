@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "impact_stories",
+  "info": {
+    "singularName": "impact-story",
+    "pluralName": "impact-stories",
+    "displayName": "Impact Story",
+    "description": "Success stories and impact reports"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "story": {
+      "type": "richtext",
+      "required": true
+    },
+    "programCategory": {
+      "type": "enumeration",
+      "enum": ["Medical", "Education", "Women Empowerment", "Youth", "Food Security", "General"],
+      "default": "General"
+    },
+    "location": {
+      "type": "string"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "date": {
+      "type": "datetime"
+    }
+  }
+}

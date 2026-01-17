@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "volunteer_opportunities",
+  "info": {
+    "singularName": "volunteer-opportunity",
+    "pluralName": "volunteer-opportunities",
+    "displayName": "Volunteer Opportunity",
+    "description": "Available volunteer positions and opportunities"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": ["Samburu", "Mathare", "Kibera", "Busia", "Uganda", "Flexible"],
+      "default": "Flexible"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "requirements": {
+      "type": "richtext",
+      "required": true
+    },
+    "responsibilities": {
+      "type": "richtext"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "accommodation": {
+      "type": "text"
+    },
+    "meals": {
+      "type": "text"
+    },
+    "fee": {
+      "type": "decimal"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["Medical", "Education", "Youth", "Women Empowerment", "General"],
+      "default": "General"
+    }
+  }
+}

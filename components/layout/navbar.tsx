@@ -127,9 +127,9 @@ export function Navbar() {
       >
         <div className="flex h-16 items-center justify-between px-4 sm:px-6">
           {/* LOGO */}
-          <Link href="/" className="relative h-10 w-[90px] shrink-0">
+          <Link href="/" className="relative h-12 w-[110px] shrink-0">
             <Image
-              src="/logo-300x236.png"
+              src="/main-Logo.svg"
               alt="UCESCO Africa"
               fill
               className="object-contain object-left"
@@ -338,7 +338,7 @@ function MobileMenu({ close }: { close: () => void }) {
       <div className="flex items-center justify-between px-4 py-4 border-b border-slate-100">
         <Link href="/" onClick={close} className="relative h-10 w-[100px]">
           <Image
-            src="/logo-300x236.png"
+            src="/main-Logo.svg"
             alt="UCESCO Africa"
             fill
             className="object-contain"

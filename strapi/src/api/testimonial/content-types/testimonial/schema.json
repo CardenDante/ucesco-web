@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonial",
+    "description": "Testimonials from volunteers, donors, and partners"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true,
+      "maxLength": 500
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "rating": {
+      "type": "integer",
+      "min": 1,
+      "max": 5,
+      "default": 5
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["Volunteer", "Meaningful Travel", "Sponsorship", "General"],
+      "default": "General"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -28,15 +28,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* About Column */}
           <div className="space-y-4 lg:col-span-1">
-            <div className="flex items-center space-x-2">
+            <div className="flex justify-start">
               <Image
-                src="/logo-300x236.png"
+                src="/footer-logo-vertical.svg"
                 alt="UCESCO Africa"
-                width={50}
-                height={39}
-                className="h-10 w-auto"
+                width={120}
+                height={120}
+                className="h-28 w-auto"
               />
-              <span className="text-xl font-bold text-primary">UCESCO Africa</span>
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">
               Building futures and transforming lives through sustainable community development across Kenya and Uganda.
