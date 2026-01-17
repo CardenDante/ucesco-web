@@ -200,37 +200,20 @@ export function Footer() {
           <div className="mt-6 pt-6 border-t border-slate-200">
             <div className="flex items-center justify-center gap-3 text-xs text-slate-500">
               <span>Powered By:</span>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="https://www.chach-a.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <Image
-                    src="https://www.chach-a.com/Logo.svg"
-                    alt="Chacha Technologies"
-                    width={100}
-                    height={24}
-                    className="h-6 w-auto opacity-60 group-hover:opacity-100 transition-opacity"
-                  />
-                </Link>
-                <span className="h-4 w-px bg-slate-300"></span>
-                <Link
-                  href="https://strapi.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <Image
-                    src="https://strapi.io/assets/strapi-logo-dark.svg"
-                    alt="Strapi"
-                    width={60}
-                    height={20}
-                    className="h-5 w-auto opacity-60 group-hover:opacity-100 transition-opacity"
-                  />
-                </Link>
-              </div>
+              <Link
+                href="https://www.chach-a.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Image
+                  src="https://www.chach-a.com/Logo.svg"
+                  alt="Chacha Technologies"
+                  width={100}
+                  height={24}
+                  className="h-6 w-auto opacity-60 group-hover:opacity-100 transition-opacity"
+                />
+              </Link>
             </div>
           </div>
         </div>
