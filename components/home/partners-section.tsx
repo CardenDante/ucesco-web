@@ -33,61 +33,67 @@ export function PartnersSection() {
   const displayPartners = partners.length > 0 ? partners : null;
 
   return (
-    <Section className="py-12 sm:py-16 bg-white border-y border-slate-100">
+    <Section className="py-12 sm:py-16 lg:py-20 bg-white">
       <Container>
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-            Our Partners
-          </p>
-          <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
-            Trusted by Communities & Organizations
-          </h3>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Working together to create lasting impact across East Africa
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Header - Left Side */}
+          <div className="text-center lg:text-left">
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">
+              Our Partners
+            </h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600">
+              Collaborating with organizations worldwide to maximize our impact
+            </p>
+          </div>
 
-        {loading ? (
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-16 w-32 sm:h-20 sm:w-40 animate-pulse rounded bg-slate-100" />
-            ))}
-          </div>
-        ) : displayPartners ? (
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-            {displayPartners.map((partner) => (
-              <div
-                key={partner.id}
-                className="relative h-16 w-32 sm:h-20 sm:w-40 opacity-60 hover:opacity-100 transition-opacity duration-300"
-              >
-                {partner.attributes.logo?.data && (
-                  <Image
-                    src={getStrapiMediaUrl(partner.attributes.logo.data.attributes.url)}
-                    alt={partner.attributes.name}
-                    fill
-                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                )}
+          {/* Partners Logos - Right Side */}
+          <div className="flex items-center gap-6 lg:gap-8">
+            {/* Vertical Separator - Hidden on mobile */}
+            <div className="hidden lg:block h-32 w-0.5 bg-slate-300 flex-shrink-0"></div>
+
+            {loading ? (
+              <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 flex-1">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="h-14 w-20 sm:h-20 sm:w-36 lg:h-24 lg:w-44 animate-pulse bg-slate-200" />
+                ))}
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-            {fallbackPartners.map((partner, index) => (
-              <div
-                key={index}
-                className="relative h-16 w-32 sm:h-20 sm:w-40 opacity-60 hover:opacity-100 transition-opacity duration-300"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  fill
-                  className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
+            ) : displayPartners ? (
+              <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 flex-1">
+                {displayPartners.map((partner) => (
+                  <div
+                    key={partner.id}
+                    className="group relative h-14 w-20 sm:h-20 sm:w-36 lg:h-24 lg:w-44 flex-shrink-0"
+                  >
+                    {partner.attributes.logo?.data && (
+                      <Image
+                        src={getStrapiMediaUrl(partner.attributes.logo.data.attributes.url)}
+                        alt={partner.attributes.name}
+                        fill
+                        className="object-contain transition-all duration-300"
+                      />
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 flex-1">
+                {fallbackPartners.map((partner, index) => (
+                  <div
+                    key={index}
+                    className="group relative h-14 w-20 sm:h-20 sm:w-36 lg:h-24 lg:w-44 flex-shrink-0"
+                  >
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      className="object-contain transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </Container>
     </Section>
   );

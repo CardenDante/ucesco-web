@@ -230,11 +230,46 @@ export default function AboutPage() {
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">
-              Credentials & Registration
+              Credentials & Recognition
             </h2>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600">
               Committed to transparency and accountability in all our operations
             </p>
+          </div>
+
+          {/* Pathway Certificate */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-10 sm:mb-12 p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-sm max-w-4xl mx-auto">
+            <Image
+              src="/ucescoafricatrustbadges/Copy of Pathway_Certificate_2025.pdf.png"
+              alt="GlobalGiving Pathway Certificate 2025"
+              width={280}
+              height={200}
+              className="h-auto w-full max-w-[280px] rounded-lg shadow-md"
+            />
+            <div className="text-center md:text-left">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900">GlobalGiving Pathway Partner</h3>
+              <p className="mt-2 text-sm sm:text-base text-slate-600">
+                UCESCO Africa is a certified GlobalGiving Pathway Partner, recognized for meeting rigorous standards
+                in organizational effectiveness, transparency, and impact. This certification validates our commitment
+                to accountability and sustainable community development.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
+                <Image
+                  src="/ucescoafricatrustbadges/2025_Pathway Vetted Badge.png"
+                  alt="Pathway Vetted 2025"
+                  width={80}
+                  height={80}
+                  className="h-16 w-auto"
+                />
+                <Image
+                  src="/ucescoafricatrustbadges/Category-Impact.png"
+                  alt="Category Impact"
+                  width={80}
+                  height={80}
+                  className="h-16 w-auto"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3 max-w-4xl mx-auto mb-8">

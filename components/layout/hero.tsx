@@ -5,6 +5,7 @@ interface HeroProps {
   title: string;
   description?: string;
   children?: React.ReactNode;
+  bottomContent?: React.ReactNode;
   backgroundImage?: string;
   backgroundVideo?: string;
   overlay?: boolean;
@@ -17,6 +18,7 @@ export function Hero({
   title,
   description,
   children,
+  bottomContent,
   backgroundImage,
   backgroundVideo,
   overlay = true,
@@ -108,6 +110,13 @@ export function Hero({
           {children && <div className="mt-6 sm:mt-8">{children}</div>}
         </div>
       </Container>
+
+      {/* Bottom Content */}
+      {bottomContent && (
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          {bottomContent}
+        </div>
+      )}
     </section>
   );
 }

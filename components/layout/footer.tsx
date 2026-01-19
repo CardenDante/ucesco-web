@@ -1,23 +1,61 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Shield, Award, CheckCircle } from "lucide-react";
-import { NewsletterSignup } from "@/components/ui/newsletter-signup";
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="border-t bg-slate-50">
-      {/* Newsletter Section */}
+      {/* Trust Badges Section */}
       <div className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:py-12 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="text-center md:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Stay Updated</h3>
-              <p className="mt-2 text-sm sm:text-base text-slate-600">
-                Get the latest updates on our programs and impact stories
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-8">
+            {/* Title - Left Side */}
+            <div className="text-center lg:text-left flex-shrink-0">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900">Trusted & Recognized</h3>
+              <p className="mt-1 text-sm text-slate-500">
+                Verified for transparency & impact
               </p>
             </div>
-            <div className="w-full md:w-auto md:min-w-[400px]">
-              <NewsletterSignup />
+
+            {/* Badges - Right Side with Separator */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 lg:gap-8">
+              {/* Vertical Separator - Hidden on mobile/tablet */}
+              <div className="hidden lg:block h-20 w-px bg-slate-200"></div>
+
+              {/* Volunteer World Badge */}
+              <div className="w-full sm:w-auto overflow-x-auto">
+                <iframe
+                  src="https://www.volunteerworld.com/review-badge/large/ucesco-africa?transparent=true"
+                  style={{ border: "none" }}
+                  width="362"
+                  height="116"
+                  className="mx-auto sm:mx-0 max-w-full"
+                  title="UCESCO Africa Reviews on Volunteer World"
+                >
+                  <p>View project reviews of UCESCO Africa on Volunteer World</p>
+                </iframe>
+              </div>
+
+              {/* Other Badges Container */}
+              <div className="flex items-center justify-center gap-4 sm:gap-6">
+                {/* Pathway Vetted Badge */}
+                <Image
+                  src="/ucescoafricatrustbadges/2025_Pathway Vetted Badge.png"
+                  alt="GlobalGiving Pathway Vetted Organization 2025"
+                  width={116}
+                  height={116}
+                  className="h-20 sm:h-24 lg:h-[116px] w-auto"
+                />
+
+                {/* Category Impact Badge */}
+                <Image
+                  src="/ucescoafricatrustbadges/Category-Impact.png"
+                  alt="Top-Ranked Organization for Impact"
+                  width={116}
+                  height={116}
+                  className="h-20 sm:h-24 lg:h-[116px] w-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -25,10 +63,10 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-5">
           {/* About Column */}
-          <div className="space-y-4 lg:col-span-1">
-            <div className="flex justify-start">
+          <div className="col-span-2 lg:col-span-1 space-y-4 text-center lg:text-left">
+            <div className="flex justify-center lg:justify-start">
               <Image
                 src="/footer-logo-vertical.svg"
                 alt="UCESCO Africa"
@@ -40,7 +78,7 @@ export function Footer() {
             <p className="text-sm text-slate-600 leading-relaxed">
               Building futures and transforming lives through sustainable community development across Kenya and Uganda.
             </p>
-            <div className="flex space-x-3 pt-2">
+            <div className="flex justify-center lg:justify-start space-x-3 pt-2">
               <Link
                 href="https://facebook.com"
                 target="_blank"
@@ -51,13 +89,15 @@ export function Footer() {
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="https://twitter.com"
+                href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-colors"
               >
-                <Twitter className="h-4 w-4" />
-                <span className="sr-only">Twitter</span>
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <span className="sr-only">X</span>
               </Link>
               <Link
                 href="https://instagram.com"
@@ -153,6 +193,30 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-900">
+              Legal
+            </h3>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <Link href="/privacy-policy" className="text-slate-600 transition-colors hover:text-primary">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-of-service" className="text-slate-600 transition-colors hover:text-primary">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/impact/reports" className="text-slate-600 transition-colors hover:text-primary">
+                  Reports & Policies
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Contact Info */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-900">
@@ -172,7 +236,7 @@ export function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 flex-shrink-0 text-primary" />
                 <a href="tel:+254123456789" className="hover:text-primary transition-colors">
-                  +254 123 456 789
+                  +254 110 547 515
                 </a>
               </li>
             </ul>
@@ -183,23 +247,8 @@ export function Footer() {
         <div className="mt-12 border-t border-slate-200 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-slate-600 sm:flex-row">
             <p>&copy; {new Date().getFullYear()} UCESCO Africa. All rights reserved.</p>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-              <Link href="/privacy-policy" className="hover:text-primary transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="hover:text-primary transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/impact/reports" className="hover:text-primary transition-colors">
-                Reports & Policies
-              </Link>
-            </div>
-          </div>
-
-          {/* Powered By */}
-          <div className="mt-6 pt-6 border-t border-slate-200">
-            <div className="flex items-center justify-center gap-3 text-xs text-slate-500">
-              <span>Powered By:</span>
+            <div className="flex items-center gap-2">
+              <span>Powered and maintained by</span>
               <Link
                 href="https://www.chach-a.com"
                 target="_blank"
@@ -211,7 +260,7 @@ export function Footer() {
                   alt="Chacha Technologies"
                   width={100}
                   height={24}
-                  className="h-6 w-auto opacity-60 group-hover:opacity-100 transition-opacity"
+                  className="h-5 w-auto opacity-70 group-hover:opacity-100 transition-opacity"
                 />
               </Link>
             </div>

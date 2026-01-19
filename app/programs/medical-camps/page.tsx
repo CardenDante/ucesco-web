@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Hero, Section, Container } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -52,6 +53,27 @@ export default function MedicalCampsPage() {
         overlayColor="primary"
         size="md"
       />
+
+      {/* GlobalGiving Recognition */}
+      <Section className="py-8 sm:py-10 bg-gradient-to-r from-primary/5 to-secondary/5 border-b border-slate-100">
+        <Container>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+            <Image
+              src="/ucescoafricatrustbadges/Copy of Pathway Partner Resources - Get To Know Us - Instagram Post.png"
+              alt="GlobalGiving Recommended - Best Provider of Medical Camps"
+              width={300}
+              height={300}
+              className="h-40 sm:h-48 w-auto rounded-xl shadow-md"
+            />
+            <div className="text-center md:text-left max-w-lg">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900">GlobalGiving Recommended</h3>
+              <p className="mt-2 text-sm sm:text-base text-slate-600">
+                Recognized by GlobalGiving as a top provider of medical camps, delivering quality healthcare to underserved communities across East Africa.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       <Section className="py-12 sm:py-16 lg:py-20">
         <Container>

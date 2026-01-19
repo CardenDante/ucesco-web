@@ -129,7 +129,7 @@ export function Navbar() {
           {/* LOGO */}
           <Link href="/" className="relative h-12 w-[110px] shrink-0">
             <Image
-              src="/main-Logo.svg"
+              src={isTransparent ? "/white.svg" : "/main-Logo.svg"}
               alt="UCESCO Africa"
               fill
               className="object-contain object-left"

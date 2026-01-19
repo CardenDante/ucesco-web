@@ -121,7 +121,7 @@ export default function TermsOfServicePage() {
             <p>
               UCESCO Africa<br />
               Email: <a href="mailto:info@ucesco.org">info@ucesco.org</a><br />
-              Phone: +254 123 456 789
+              Phone: +254 110 547 515
             </p>
           </div>
         </Container>
