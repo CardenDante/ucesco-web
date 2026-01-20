@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -80,7 +80,7 @@ export function Footer() {
             </p>
             <div className="flex justify-center lg:justify-start space-x-3 pt-2">
               <Link
-                href="https://facebook.com"
+                href="https://web.facebook.com/www.ucesco.org?_rdc=1&_rdr#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-colors"
@@ -89,7 +89,7 @@ export function Footer() {
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="https://x.com"
+                href="https://x.com/ucesco"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-colors"
@@ -100,7 +100,7 @@ export function Footer() {
                 <span className="sr-only">X</span>
               </Link>
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/ucescoafrica/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-colors"
@@ -109,13 +109,22 @@ export function Footer() {
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/ucesco-africa-191699197/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-colors"
               >
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link
+                href="https://www.youtube.com/channel/UCQ55leAlFyW09OYeQBtY93w"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-colors"
+              >
+                <Youtube className="h-4 w-4" />
+                <span className="sr-only">YouTube</span>
               </Link>
             </div>
           </div>
