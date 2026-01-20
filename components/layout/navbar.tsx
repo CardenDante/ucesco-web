@@ -28,6 +28,8 @@ import {
   CalendarCheck,
   ChevronRight,
   X,
+  BookOpen,
+  UsersRound,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -72,6 +74,27 @@ const programs = [
   },
 ];
 
+const aboutLinks = [
+  {
+    title: "About Us",
+    href: "/about",
+    description: "Learn about our mission, vision, and values",
+    icon: Heart,
+  },
+  {
+    title: "Our History",
+    href: "/about/history",
+    description: "Discover our journey and the inspiration behind UCESCO Africa",
+    icon: BookOpen,
+  },
+  {
+    title: "Our Team",
+    href: "/about/team",
+    description: "Meet the dedicated people making a difference",
+    icon: UsersRound,
+  },
+];
+
 const callsToAction = [
   {
     name: "Join as Volunteer",
@@ -104,6 +127,7 @@ export function Navbar() {
 
   const isHome = pathname === "/";
   const programsActive = pathname.startsWith("/programs");
+  const aboutActive = pathname.startsWith("/about");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -140,7 +164,67 @@ export function Navbar() {
           {/* DESKTOP NAV */}
           <nav className="hidden lg:flex items-center gap-0.5">
             <NavItem href="/" label="Home" active={pathname === "/"} transparent={isTransparent} />
-            <NavItem href="/about" label="About" active={pathname === "/about"} transparent={isTransparent} />
+
+            {/* ABOUT DROPDOWN */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "h-auto px-2.5 py-2 text-sm font-medium bg-transparent shadow-none",
+                      "hover:!bg-transparent focus:!bg-transparent data-[state=open]:!bg-transparent",
+                      "focus:!text-current hover:!text-current data-[state=open]:!text-current",
+                      textColor,
+                      aboutActive
+                        ? isTransparent
+                          ? "text-white"
+                          : "text-primary"
+                        : "",
+                      isTransparent
+                        ? "hover:!text-white/80 data-[state=open]:!text-white"
+                        : "hover:!text-primary data-[state=open]:!text-primary"
+                    )}
+                  >
+                    About
+                    {aboutActive && (
+                      <span
+                        className={cn(
+                          "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-1/2 rounded-full",
+                          isTransparent ? "bg-white" : "bg-primary"
+                        )}
+                      />
+                    )}
+                  </NavigationMenuTrigger>
+
+                  <NavigationMenuContent className="w-full p-0">
+                    <div className="bg-white">
+                      <div className="p-6 flex gap-6">
+                        {aboutLinks.map((link) => (
+                          <NavigationMenuLink asChild key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="group flex flex-col items-center gap-3 rounded-xl p-5 hover:bg-slate-50 transition w-[200px]"
+                            >
+                              <div className="h-11 w-11 flex items-center justify-center rounded-xl bg-slate-100">
+                                <link.icon className="h-6 w-6 text-slate-600 group-hover:text-primary" />
+                              </div>
+                              <div className="text-center">
+                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm">
+                                  {link.title}
+                                </div>
+                                <p className="text-xs text-slate-600 mt-1">
+                                  {link.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
             {/* PROGRAMS – NO HOVER BG */}
             <NavigationMenu>
@@ -331,6 +415,7 @@ function NavItem({
 
 function MobileMenu({ close }: { close: () => void }) {
   const [programsOpen, setProgramsOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   return (
     <div className="flex flex-col h-full">
@@ -361,13 +446,37 @@ function MobileMenu({ close }: { close: () => void }) {
         >
           Home
         </Link>
-        <Link
-          href="/about"
-          onClick={close}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
-        >
-          About
-        </Link>
+
+        {/* About Accordion */}
+        <div>
+          <button
+            onClick={() => setAboutOpen(!aboutOpen)}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
+          >
+            About
+            <ChevronRight
+              className={cn(
+                "h-4 w-4 transition-transform text-slate-500",
+                aboutOpen && "rotate-90"
+              )}
+            />
+          </button>
+          {aboutOpen && (
+            <div className="ml-4 border-l-2 border-slate-200 pl-2 space-y-1 mt-1">
+              {aboutLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={close}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700"
+                >
+                  <link.icon className="h-4 w-4 text-slate-500" />
+                  <span className="text-sm">{link.title}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Programs Accordion */}
         <div>

@@ -123,3 +123,65 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Sliding animations for partners section */
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-16.666%);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-16.666%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .animate-slide-left-fast {
+    animation: slide-left 30s linear infinite;
+  }
+
+  .animate-slide-right-fast {
+    animation: slide-right 30s linear infinite;
+  }
+
+  /* Pause animation on hover */
+  .animate-slide-left-fast:hover,
+  .animate-slide-right-fast:hover {
+    animation-play-state: paused;
+  }
+}
+/* ... existing code ... */
+
+/* 1. Define the Keyframes */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+/* 2. Define Standard Classes */
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* 3. THE FIX: Pause BOTH lists when the PARENT is hovered */
+.pause-on-hover:hover .animate-scroll-left,
+.pause-on-hover:hover .animate-scroll-right {
+  animation-play-state: paused;
+}
