@@ -82,20 +82,22 @@ export function ProgramHighlights() {
                 <program.icon className={`absolute -top-4 -right-4 h-24 w-24 sm:h-32 sm:w-32 ${program.iconColor} opacity-10 group-hover:opacity-15 transition-opacity`} />
 
                 {/* Content */}
-                <div className="relative">
-                  <program.icon className={`h-8 w-8 sm:h-10 sm:w-10 ${program.iconColor} group-hover:scale-110 transition-transform`} />
+                <div className="relative flex items-start gap-3 sm:gap-4">
+                  <program.icon className={`h-8 w-8 sm:h-10 sm:w-10 ${program.iconColor} group-hover:scale-110 transition-transform flex-shrink-0`} />
 
-                  <h3 className="mt-4 sm:mt-5 text-lg sm:text-xl font-semibold text-slate-900 group-hover:text-primary transition-colors">
-                    {program.title}
-                  </h3>
-                  <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
-                    {program.description}
-                  </p>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl font-semibold text-slate-900 group-hover:text-primary transition-colors">
+                      {program.title}
+                    </h3>
+                    <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+                      {program.description}
+                    </p>
 
-                  {/* Link indicator */}
-                  <div className="mt-4 sm:mt-5 flex items-center text-sm font-medium text-primary">
-                    Learn more
-                    <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    {/* Link indicator */}
+                    <div className="mt-4 sm:mt-5 flex items-center text-sm font-medium text-primary">
+                      Learn more
+                      <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </div>

@@ -30,6 +30,12 @@ import {
   X,
   BookOpen,
   UsersRound,
+  Target,
+  FolderKanban,
+  Newspaper,
+  TrendingUp,
+  Plane,
+  UserPlus,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -93,9 +99,66 @@ const aboutLinks = [
     description: "Meet the dedicated people making a difference",
     icon: UsersRound,
   },
+  {
+    title: "Impact",
+    href: "/impact",
+    description: "See the difference we're making in communities",
+    icon: Target,
+  },
+  {
+    title: "Contact Us",
+    href: "/contact",
+    description: "Get in touch with us for any inquiries",
+    icon: CalendarCheck,
+  },
 ];
 
-const callsToAction = [
+const getInvolvedLinks = [
+  {
+    title: "Volunteer",
+    href: "/volunteer",
+    description: "Join our team and make a direct impact",
+    icon: HandHeart,
+  },
+  {
+    title: "Meaningful Travel",
+    href: "/meaningful-travel",
+    description: "Experience our work firsthand through visits",
+    icon: Plane,
+  },
+  {
+    title: "Apply as Medic",
+    href: "/apply-medic",
+    description: "Join our medical camps as a healthcare professional",
+    icon: UserPlus,
+  },
+];
+
+const storiesLinks = [
+  {
+    title: "Blog",
+    href: "/blog",
+    description: "Read updates and insights from our work",
+    icon: Newspaper,
+  },
+  {
+    title: "Impact Stories",
+    href: "/impact",
+    description: "Real stories of lives transformed",
+    icon: TrendingUp,
+  },
+];
+
+const projectsLinks = [
+  {
+    title: "View Projects",
+    href: "/projects",
+    description: "Explore our community development projects",
+    icon: FolderKanban,
+  },
+];
+
+const programsCTAs = [
   {
     name: "Join as Volunteer",
     href: "/volunteer",
@@ -116,6 +179,90 @@ const callsToAction = [
   },
 ];
 
+const aboutCTAs = [
+  {
+    name: "Contact Us",
+    href: "/contact",
+    icon: CalendarCheck,
+    description: "Get in touch with our team",
+  },
+  {
+    name: "See Our Impact",
+    href: "/impact",
+    icon: Target,
+    description: "View our achievements",
+  },
+  {
+    name: "Get Involved",
+    href: "/get-involved",
+    icon: HandHeart,
+    description: "Join our mission",
+  },
+];
+
+const projectsCTAs = [
+  {
+    name: "Support Projects",
+    href: "/donate",
+    icon: Heart,
+    description: "Fund community initiatives",
+  },
+  {
+    name: "Volunteer",
+    href: "/volunteer",
+    icon: HandHeart,
+    description: "Join our projects",
+  },
+  {
+    name: "Contact Us",
+    href: "/contact",
+    icon: CalendarCheck,
+    description: "Partner with us",
+  },
+];
+
+const getInvolvedCTAs = [
+  {
+    name: "Donate",
+    href: "/donate",
+    icon: Heart,
+    description: "Support our work",
+  },
+  {
+    name: "Sponsor a Child",
+    href: "/sponsor",
+    icon: GraduationCap,
+    description: "Change a life today",
+  },
+  {
+    name: "Contact Us",
+    href: "/contact",
+    icon: CalendarCheck,
+    description: "Learn more about opportunities",
+  },
+];
+
+const storiesCTAs = [
+  {
+    name: "View Impact",
+    href: "/impact",
+    icon: Target,
+    description: "See our achievements",
+  },
+  {
+    name: "Get Involved",
+    href: "/get-involved",
+    icon: HandHeart,
+    description: "Join our mission",
+  },
+  {
+    name: "Donate",
+    href: "/donate",
+    icon: Heart,
+    description: "Support our work",
+  },
+];
+
 /* -------------------------------------------------------------------------- */
 /*                                  NAVBAR                                    */
 /* -------------------------------------------------------------------------- */
@@ -127,7 +274,10 @@ export function Navbar() {
 
   const isHome = pathname === "/";
   const programsActive = pathname.startsWith("/programs");
-  const aboutActive = pathname.startsWith("/about");
+  const aboutActive = pathname.startsWith("/about") || pathname.startsWith("/impact") || pathname === "/contact";
+  const projectsActive = pathname.startsWith("/projects");
+  const getInvolvedActive = pathname.startsWith("/volunteer") || pathname.startsWith("/meaningful-travel") || pathname.startsWith("/apply-medic");
+  const storiesActive = pathname.startsWith("/blog") || pathname === "/impact";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -196,29 +346,50 @@ export function Navbar() {
                     )}
                   </NavigationMenuTrigger>
 
-                  <NavigationMenuContent className="w-full p-0">
-                    <div className="bg-white">
-                      <div className="p-6 flex gap-6">
+                  <NavigationMenuContent className="w-full p-0 rounded-xl overflow-hidden">
+                    <div className="bg-white rounded-xl">
+                      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
                         {aboutLinks.map((link) => (
                           <NavigationMenuLink asChild key={link.href}>
                             <Link
                               href={link.href}
-                              className="group flex flex-col items-center gap-3 rounded-xl p-5 hover:bg-slate-50 transition w-[200px]"
+                              className="group !flex !flex-row items-start gap-3 rounded-xl p-3 hover:bg-slate-50 transition"
                             >
-                              <div className="h-11 w-11 flex items-center justify-center rounded-xl bg-slate-100">
-                                <link.icon className="h-6 w-6 text-slate-600 group-hover:text-primary" />
-                              </div>
-                              <div className="text-center">
-                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm">
+                              <link.icon className="!h-6 !w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                              <div className="flex-1">
+                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm mb-1">
                                   {link.title}
                                 </div>
-                                <p className="text-xs text-slate-600 mt-1">
+                                <p className="text-xs text-slate-600 leading-relaxed">
                                   {link.description}
                                 </p>
                               </div>
                             </Link>
                           </NavigationMenuLink>
                         ))}
+                      </div>
+
+                      <div className="border-t bg-slate-50 rounded-b-xl">
+                        <div className="mx-auto max-w-7xl grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x">
+                          {aboutCTAs.map((cta) => (
+                            <Link
+                              key={cta.name}
+                              href={cta.href}
+                              className="flex items-center justify-between gap-4 p-4 hover:bg-slate-100 transition-colors"
+                            >
+                              <div className="flex gap-3 items-center">
+                                <cta.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                                <div>
+                                  <div className="font-semibold text-sm">{cta.name}</div>
+                                  <div className="text-xs text-slate-600">
+                                    {cta.description}
+                                  </div>
+                                </div>
+                              </div>
+                              <ArrowRight className="h-4 w-4 text-slate-400" />
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </NavigationMenuContent>
@@ -258,23 +429,21 @@ export function Navbar() {
                   </NavigationMenuTrigger>
 
                   {/* MEGA MENU */}
-                  <NavigationMenuContent className="w-full p-0">
-                    <div className="bg-white">
-                      <div className="mx-auto max-w-7xl px-6 py-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                  <NavigationMenuContent className="w-full p-0 rounded-xl overflow-hidden">
+                    <div className="bg-white rounded-xl">
+                      <div className="mx-auto max-w-7xl px-6 py-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
                         {programs.map((p) => (
                           <NavigationMenuLink asChild key={p.href}>
                             <Link
                               href={p.href}
-                              className="group flex gap-4 rounded-xl p-5 hover:bg-slate-50 transition"
+                              className="group !flex !flex-row items-start gap-3 rounded-xl p-4 hover:bg-slate-50 transition"
                             >
-                              <div className="h-11 w-11 flex items-center justify-center rounded-xl bg-slate-100">
-                                <p.icon className="h-6 w-6 text-slate-600 group-hover:text-primary" />
-                              </div>
-                              <div>
-                                <div className="font-semibold text-slate-900 group-hover:text-primary">
+                              <p.icon className="!h-6 !w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                              <div className="flex-1">
+                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm mb-1">
                                   {p.title}
                                 </div>
-                                <p className="text-sm text-slate-600 mt-1">
+                                <p className="text-xs text-slate-600 leading-relaxed">
                                   {p.description}
                                 </p>
                               </div>
@@ -283,18 +452,18 @@ export function Navbar() {
                         ))}
                       </div>
 
-                      <div className="border-t bg-slate-50">
+                      <div className="border-t bg-slate-50 rounded-b-xl">
                         <div className="mx-auto max-w-7xl grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x">
-                          {callsToAction.map((cta) => (
+                          {programsCTAs.map((cta) => (
                             <Link
                               key={cta.name}
                               href={cta.href}
-                              className="flex items-center justify-between gap-4 p-4 hover:bg-slate-100"
+                              className="flex items-center justify-between gap-4 p-4 hover:bg-slate-100 transition-colors"
                             >
                               <div className="flex gap-3 items-center">
-                                <cta.icon className="h-5 w-5 text-slate-400" />
+                                <cta.icon className="h-5 w-5 text-primary" strokeWidth={2} />
                                 <div>
-                                  <div className="font-semibold">{cta.name}</div>
+                                  <div className="font-semibold text-sm">{cta.name}</div>
                                   <div className="text-xs text-slate-600">
                                     {cta.description}
                                   </div>
@@ -311,11 +480,251 @@ export function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <NavItem href="/volunteer" label="Volunteer" active={pathname === "/volunteer"} transparent={isTransparent} />
-            <NavItem href="/meaningful-travel" label="Meaningful Travel" active={pathname === "/meaningful-travel"} transparent={isTransparent} />
-            <NavItem href="/impact" label="Impact" active={pathname === "/impact"} transparent={isTransparent} />
-            <NavItem href="/blog" label="Blog" active={pathname === "/blog"} transparent={isTransparent} />
-            <NavItem href="/contact" label="Contact" active={pathname === "/contact"} transparent={isTransparent} />
+            {/* PROJECTS DROPDOWN */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "h-auto px-2.5 py-2 text-sm font-medium bg-transparent shadow-none",
+                      "hover:!bg-transparent focus:!bg-transparent data-[state=open]:!bg-transparent",
+                      "focus:!text-current hover:!text-current data-[state=open]:!text-current",
+                      textColor,
+                      projectsActive
+                        ? isTransparent
+                          ? "text-white"
+                          : "text-primary"
+                        : "",
+                      isTransparent
+                        ? "hover:!text-white/80 data-[state=open]:!text-white"
+                        : "hover:!text-primary data-[state=open]:!text-primary"
+                    )}
+                  >
+                    Projects
+                    {projectsActive && (
+                      <span
+                        className={cn(
+                          "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-1/2 rounded-full",
+                          isTransparent ? "bg-white" : "bg-primary"
+                        )}
+                      />
+                    )}
+                  </NavigationMenuTrigger>
+
+                  <NavigationMenuContent className="w-full p-0 rounded-xl overflow-hidden">
+                    <div className="bg-white rounded-xl">
+                      <div className="p-4 grid grid-cols-1 gap-3">
+                        {projectsLinks.map((link) => (
+                          <NavigationMenuLink asChild key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="group !flex !flex-row items-start gap-3 rounded-xl p-3 hover:bg-slate-50 transition min-w-[280px]"
+                            >
+                              <link.icon className="!h-6 !w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                              <div className="flex-1">
+                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm mb-1">
+                                  {link.title}
+                                </div>
+                                <p className="text-xs text-slate-600 leading-relaxed">
+                                  {link.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+
+                      <div className="border-t bg-slate-50 rounded-b-xl">
+                        <div className="mx-auto max-w-7xl grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x">
+                          {projectsCTAs.map((cta) => (
+                            <Link
+                              key={cta.name}
+                              href={cta.href}
+                              className="flex items-center justify-between gap-4 p-4 hover:bg-slate-100 transition-colors"
+                            >
+                              <div className="flex gap-3 items-center">
+                                <cta.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                                <div>
+                                  <div className="font-semibold text-sm">{cta.name}</div>
+                                  <div className="text-xs text-slate-600">
+                                    {cta.description}
+                                  </div>
+                                </div>
+                              </div>
+                              <ArrowRight className="h-4 w-4 text-slate-400" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* GET INVOLVED DROPDOWN */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "h-auto px-2.5 py-2 text-sm font-medium bg-transparent shadow-none",
+                      "hover:!bg-transparent focus:!bg-transparent data-[state=open]:!bg-transparent",
+                      "focus:!text-current hover:!text-current data-[state=open]:!text-current",
+                      textColor,
+                      getInvolvedActive
+                        ? isTransparent
+                          ? "text-white"
+                          : "text-primary"
+                        : "",
+                      isTransparent
+                        ? "hover:!text-white/80 data-[state=open]:!text-white"
+                        : "hover:!text-primary data-[state=open]:!text-primary"
+                    )}
+                  >
+                    Get Involved
+                    {getInvolvedActive && (
+                      <span
+                        className={cn(
+                          "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-1/2 rounded-full",
+                          isTransparent ? "bg-white" : "bg-primary"
+                        )}
+                      />
+                    )}
+                  </NavigationMenuTrigger>
+
+                  <NavigationMenuContent className="w-full p-0 rounded-xl overflow-hidden">
+                    <div className="bg-white rounded-xl">
+                      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+                        {getInvolvedLinks.map((link) => (
+                          <NavigationMenuLink asChild key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="group !flex !flex-row items-start gap-3 rounded-xl p-3 hover:bg-slate-50 transition"
+                            >
+                              <link.icon className="!h-6 !w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                              <div className="flex-1">
+                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm mb-1">
+                                  {link.title}
+                                </div>
+                                <p className="text-xs text-slate-600 leading-relaxed">
+                                  {link.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+
+                      <div className="border-t bg-slate-50 rounded-b-xl">
+                        <div className="mx-auto max-w-7xl grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x">
+                          {getInvolvedCTAs.map((cta) => (
+                            <Link
+                              key={cta.name}
+                              href={cta.href}
+                              className="flex items-center justify-between gap-4 p-4 hover:bg-slate-100 transition-colors"
+                            >
+                              <div className="flex gap-3 items-center">
+                                <cta.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                                <div>
+                                  <div className="font-semibold text-sm">{cta.name}</div>
+                                  <div className="text-xs text-slate-600">
+                                    {cta.description}
+                                  </div>
+                                </div>
+                              </div>
+                              <ArrowRight className="h-4 w-4 text-slate-400" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* STORIES DROPDOWN */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "h-auto px-2.5 py-2 text-sm font-medium bg-transparent shadow-none",
+                      "hover:!bg-transparent focus:!bg-transparent data-[state=open]:!bg-transparent",
+                      "focus:!text-current hover:!text-current data-[state=open]:!text-current",
+                      textColor,
+                      storiesActive
+                        ? isTransparent
+                          ? "text-white"
+                          : "text-primary"
+                        : "",
+                      isTransparent
+                        ? "hover:!text-white/80 data-[state=open]:!text-white"
+                        : "hover:!text-primary data-[state=open]:!text-primary"
+                    )}
+                  >
+                    Stories
+                    {storiesActive && (
+                      <span
+                        className={cn(
+                          "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-1/2 rounded-full",
+                          isTransparent ? "bg-white" : "bg-primary"
+                        )}
+                      />
+                    )}
+                  </NavigationMenuTrigger>
+
+                  <NavigationMenuContent className="w-full p-0 rounded-xl overflow-hidden">
+                    <div className="bg-white rounded-xl">
+                      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {storiesLinks.map((link) => (
+                          <NavigationMenuLink asChild key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="group !flex !flex-row items-start gap-3 rounded-xl p-3 hover:bg-slate-50 transition"
+                            >
+                              <link.icon className="!h-6 !w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                              <div className="flex-1">
+                                <div className="font-semibold text-slate-900 group-hover:text-primary text-sm mb-1">
+                                  {link.title}
+                                </div>
+                                <p className="text-xs text-slate-600 leading-relaxed">
+                                  {link.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+
+                      <div className="border-t bg-slate-50 rounded-b-xl">
+                        <div className="mx-auto max-w-7xl grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x">
+                          {storiesCTAs.map((cta) => (
+                            <Link
+                              key={cta.name}
+                              href={cta.href}
+                              className="flex items-center justify-between gap-4 p-4 hover:bg-slate-100 transition-colors"
+                            >
+                              <div className="flex gap-3 items-center">
+                                <cta.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                                <div>
+                                  <div className="font-semibold text-sm">{cta.name}</div>
+                                  <div className="text-xs text-slate-600">
+                                    {cta.description}
+                                  </div>
+                                </div>
+                              </div>
+                              <ArrowRight className="h-4 w-4 text-slate-400" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </nav>
 
           {/* CTA BUTTONS */}
@@ -416,6 +825,9 @@ function NavItem({
 function MobileMenu({ close }: { close: () => void }) {
   const [programsOpen, setProgramsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
+  const [getInvolvedOpen, setGetInvolvedOpen] = useState(false);
+  const [storiesOpen, setStoriesOpen] = useState(false);
 
   return (
     <div className="flex flex-col h-full">
@@ -517,41 +929,98 @@ function MobileMenu({ close }: { close: () => void }) {
           )}
         </div>
 
-        <Link
-          href="/volunteer"
-          onClick={close}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
-        >
-          Volunteer
-        </Link>
-        <Link
-          href="/meaningful-travel"
-          onClick={close}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
-        >
-          Meaningful Travel
-        </Link>
-        <Link
-          href="/impact"
-          onClick={close}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
-        >
-          Impact
-        </Link>
-        <Link
-          href="/blog"
-          onClick={close}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
-        >
-          Blog
-        </Link>
-        <Link
-          href="/contact"
-          onClick={close}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
-        >
-          Contact
-        </Link>
+        {/* Projects Accordion */}
+        <div>
+          <button
+            onClick={() => setProjectsOpen(!projectsOpen)}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
+          >
+            Projects
+            <ChevronRight
+              className={cn(
+                "h-4 w-4 transition-transform text-slate-500",
+                projectsOpen && "rotate-90"
+              )}
+            />
+          </button>
+          {projectsOpen && (
+            <div className="ml-4 border-l-2 border-slate-200 pl-2 space-y-1 mt-1">
+              {projectsLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={close}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700"
+                >
+                  <link.icon className="h-4 w-4 text-slate-500" />
+                  <span className="text-sm">{link.title}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Get Involved Accordion */}
+        <div>
+          <button
+            onClick={() => setGetInvolvedOpen(!getInvolvedOpen)}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
+          >
+            Get Involved
+            <ChevronRight
+              className={cn(
+                "h-4 w-4 transition-transform text-slate-500",
+                getInvolvedOpen && "rotate-90"
+              )}
+            />
+          </button>
+          {getInvolvedOpen && (
+            <div className="ml-4 border-l-2 border-slate-200 pl-2 space-y-1 mt-1">
+              {getInvolvedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={close}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700"
+                >
+                  <link.icon className="h-4 w-4 text-slate-500" />
+                  <span className="text-sm">{link.title}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Stories Accordion */}
+        <div>
+          <button
+            onClick={() => setStoriesOpen(!storiesOpen)}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-slate-100 font-medium text-slate-900"
+          >
+            Stories
+            <ChevronRight
+              className={cn(
+                "h-4 w-4 transition-transform text-slate-500",
+                storiesOpen && "rotate-90"
+              )}
+            />
+          </button>
+          {storiesOpen && (
+            <div className="ml-4 border-l-2 border-slate-200 pl-2 space-y-1 mt-1">
+              {storiesLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={close}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700"
+                >
+                  <link.icon className="h-4 w-4 text-slate-500" />
+                  <span className="text-sm">{link.title}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </nav>
 
       {/* Mobile CTA Buttons */}
